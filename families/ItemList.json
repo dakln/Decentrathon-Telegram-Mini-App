@@ -1,0 +1,11 @@
+{
+	"name": "ItemList",
+	"plugin-id": "Sprite",
+	"sid": 501554164406994,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Item"
+	]
+}

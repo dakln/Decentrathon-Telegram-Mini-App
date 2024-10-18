@@ -1,0 +1,58 @@
+{
+	"name": "Button",
+	"plugin-id": "TiledBg",
+	"sid": 585498218286862,
+	"instanceVariables": [
+		{
+			"name": "Id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 495529010236036
+		},
+		{
+			"name": "Class",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 597573826582076
+		},
+		{
+			"name": "IWidth",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 301964761116350
+		},
+		{
+			"name": "IHeight",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 421251385146911
+		},
+		{
+			"name": "Enabled",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 568324539437152
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 953146290172010
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 460336563474922
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"ComponentButton"
+	]
+}

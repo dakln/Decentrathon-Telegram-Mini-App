@@ -1,0 +1,390 @@
+{
+	"name": "ES_Scroll",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 726367310214163
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Item",
+					"sid": 406347101724074
+				}
+			],
+			"sid": 582336538429020,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 848867651198730,
+							"parameters": {
+								"count": "20"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 260685795604109,
+							"parameters": {
+								"object-to-create": "ItemList",
+								"layer": "\"List\"",
+								"x": "ViewportMidX(\"UI\")",
+								"y": "(ViewportTop(\"UI\") + 24) + loopindex * 200",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 961250134384880
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [],
+			"sid": 757222857870131,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-highest-lowest-value",
+							"objectClass": "System",
+							"sid": 752129298796983,
+							"parameters": {
+								"object": "ItemList",
+								"which": "lowest",
+								"expression": "ItemList.IID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Camera",
+							"sid": 180630700432058,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "MinY",
+								"value": "LayoutHeight/2"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Camera",
+							"sid": 757820237374288,
+							"parameters": {
+								"instance-variable": "MinY",
+								"value": "ItemList.BBoxTop + 24"
+							}
+						}
+					],
+					"sid": 223583758254906
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-highest-lowest-value",
+							"objectClass": "System",
+							"sid": 194515703100327,
+							"parameters": {
+								"object": "ItemList",
+								"which": "highest",
+								"expression": "ItemList.IID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Camera",
+							"sid": 550477034019739,
+							"parameters": {
+								"instance-variable": "MaxY",
+								"value": "ItemList.BBoxBottom - 24"
+							}
+						}
+					],
+					"sid": 654573328168159
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-in-touch",
+					"objectClass": "Touch",
+					"sid": 980756688002429
+				}
+			],
+			"actions": [
+				{
+					"id": "set-max-speed",
+					"objectClass": "Camera",
+					"sid": 718454117664276,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"max-speed": "max(Touch.SpeedAt(0), 4000)"
+					}
+				}
+			],
+			"sid": 399000792733916,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 818233533261177,
+							"parameters": {
+								"first-value": "Touch.AngleAt(0)",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "You can change the x3 multiplier to increase or decrease the speed"
+						},
+						{
+							"id": "set-vector-y",
+							"objectClass": "Camera",
+							"sid": 738405647391135,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"vector-y": "-Touch.SpeedAt(0) * Self.Speed"
+							}
+						}
+					],
+					"sid": 208598587616382
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 733455198096919,
+							"parameters": {
+								"first-value": "Touch.AngleAt(0)",
+								"comparison": 2,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "You can change the x3 multiplier to increase or decrease the speed"
+						},
+						{
+							"id": "set-vector-y",
+							"objectClass": "Camera",
+							"sid": 442759521244126,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"vector-y": "Touch.SpeedAt(0) * Self.Speed"
+							}
+						}
+					],
+					"sid": 622202869307800
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-in-touch",
+					"objectClass": "Touch",
+					"sid": 942927501282071,
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 946284114718138,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Camera",
+							"sid": 654337645976229,
+							"parameters": {
+								"comparison": 2,
+								"y-co-ordinate": "Self.MinY"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 757900729367331,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 270035949847712,
+									"parameters": {
+										"first-value": "distance(0, Camera.Y, 0, Camera.MinY)",
+										"comparison": 4,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Camera",
+									"sid": 418075660798221,
+									"parameters": {
+										"y": "lerp(Self.Y, Self.MinY, Self.Smoothness)"
+									}
+								}
+							],
+							"sid": 374857320810711
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 702436514282484
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 246416086166641
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Camera",
+									"sid": 490515131770833,
+									"parameters": {
+										"y": "Self.MinY"
+									}
+								}
+							],
+							"sid": 552554407390266
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Camera",
+							"sid": 956656764015854,
+							"parameters": {
+								"comparison": 4,
+								"y-co-ordinate": "Self.MaxY"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 969941169877496,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 192631128992001,
+									"parameters": {
+										"first-value": "distance(0, Camera.Y, 0, Camera.MaxY)",
+										"comparison": 4,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Camera",
+									"sid": 430427903009007,
+									"parameters": {
+										"y": "lerp(Self.Y, Self.MaxY, Self.Smoothness)"
+									}
+								}
+							],
+							"sid": 895625246920196
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 401558505375987
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 809839381277881
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Camera",
+									"sid": 811827625177067,
+									"parameters": {
+										"y": "Self.MaxY"
+									}
+								}
+							],
+							"sid": 119107139769927
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Camera",
+					"sid": 835625403538732,
+					"behaviorType": "8Direction"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-y",
+					"objectClass": "Camera",
+					"sid": 752765106361499,
+					"parameters": {
+						"y": "roundToDp(Self.Y, 1)"
+					}
+				}
+			],
+			"sid": 609196318455352
+		}
+	],
+	"sid": 772394817085299
+}

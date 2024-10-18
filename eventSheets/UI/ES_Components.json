@@ -1,0 +1,406 @@
+{
+	"name": "ES_Components",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "LoaderLayoutCompleted",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 813998140448224
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 326605703284925
+				}
+			],
+			"actions": [],
+			"sid": 172179204226518,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 489389569442154,
+							"parameters": {
+								"variable": "LoaderLayoutCompleted",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 735575118680674
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 606709005566718
+				}
+			],
+			"actions": [],
+			"sid": 275851848917279,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 752925609226097,
+							"parameters": {
+								"variable": "LoaderLayoutCompleted"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 732628989117772,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 313932808251761,
+									"parameters": {
+										"object": "Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "instance-signal",
+									"objectClass": "Button",
+									"sid": 553876892604856,
+									"parameters": {
+										"tag": "\"Initialize\""
+									}
+								}
+							],
+							"sid": 364762406552437
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Components",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "ReductionRate",
+							"type": "number",
+							"initialValue": "0.075",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 916956950806321
+						},
+						{
+							"eventType": "variable",
+							"name": "AnimationSpeed",
+							"type": "number",
+							"initialValue": "0.2",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 351977994725480
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "Button",
+									"sid": 178672993960129,
+									"parameters": {
+										"tag": "\"Initialize\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 811023384967240,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Button",
+											"sid": 785042623257218,
+											"parameters": {
+												"instance-variable": "IWidth",
+												"value": "Self.Width"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Button",
+											"sid": 274127506538072,
+											"parameters": {
+												"instance-variable": "IHeight",
+												"value": "Self.Height"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Button",
+											"sid": 730110065208756,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 748289293711155
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "Button",
+									"sid": 634741250115547,
+									"parameters": {
+										"tag": "\"TouchStart\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Button",
+									"sid": 156369444843516,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"TouchStart\"",
+										"property": "size",
+										"end-x": "Self.IWidth - (Self.IWidth * ReductionRate)",
+										"end-y": "Self.IHeight - (Self.IHeight * ReductionRate)",
+										"time": "AnimationSpeed",
+										"ease": "easeoutexpo",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 883696646798170
+								},
+								{
+									"id": "instance-signal",
+									"objectClass": "Button",
+									"sid": 350904550271656,
+									"parameters": {
+										"tag": "\"AnimationEnd\""
+									}
+								}
+							],
+							"sid": 730140535318735
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "Button",
+									"sid": 957747328239159,
+									"parameters": {
+										"tag": "\"TouchEnd\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Button",
+									"sid": 483050003542761,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"TouchEnd\"",
+										"property": "size",
+										"end-x": "Self.IWidth",
+										"end-y": "Self.IHeight",
+										"time": "AnimationSpeed - (AnimationSpeed * 0.1)",
+										"ease": "easeoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 326928890932590
+								},
+								{
+									"id": "instance-signal",
+									"objectClass": "Button",
+									"sid": 446776887723369,
+									"parameters": {
+										"tag": "\"AnimationEnd\""
+									}
+								}
+							],
+							"sid": 162911313400393
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 811617485671964,
+									"parameters": {
+										"object": "Button",
+										"type": "start"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 892247104614925,
+									"parameters": {
+										"layer": "Button.LayerName"
+									}
+								},
+								{
+									"id": "layer-is-interactive",
+									"objectClass": "System",
+									"sid": 465598388796384,
+									"parameters": {
+										"layer": "Button.LayerName"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Button",
+									"sid": 575277329194898,
+									"parameters": {
+										"instance-variable": "Enabled"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "instance-signal",
+									"objectClass": "Button",
+									"sid": 441194981077307,
+									"parameters": {
+										"tag": "\"TouchStart\""
+									}
+								}
+							],
+							"sid": 663348377879753
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 490531899159088,
+									"parameters": {
+										"object": "Button",
+										"type": "end"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 735527604093965,
+									"parameters": {
+										"layer": "Button.LayerName"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "instance-signal",
+									"objectClass": "Button",
+									"sid": 798133949021100,
+									"parameters": {
+										"tag": "\"TouchEnd\""
+									}
+								}
+							],
+							"sid": 175168539893493
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 924011900128216,
+									"parameters": {
+										"object": "Button"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 705156084925451,
+									"parameters": {
+										"layer": "Button.LayerName"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 771074098327620
+								}
+							],
+							"actions": [
+								{
+									"id": "instance-signal",
+									"objectClass": "Button",
+									"sid": 704762604593785,
+									"parameters": {
+										"tag": "\"TouchEnd\""
+									}
+								}
+							],
+							"sid": 674751967255068
+						}
+					],
+					"sid": 319900489549287
+				}
+			],
+			"sid": 832597169262571
+		}
+	],
+	"sid": 107548238185942
+}

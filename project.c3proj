@@ -1,0 +1,403 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 40702,
+	"name": "Decentrathon",
+	"runtime": "c3",
+	"useWorker": "dom",
+	"bundleAddons": true,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LostTelegramMiniAppsSDK",
+			"name": "TelegramMiniApps",
+			"author": "lostinmind.",
+			"bundled": true,
+			"version": "5.1.0.0",
+			"sdkVersion": 2
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Anchor",
+			"name": "Anchor",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "EightDir",
+			"name": "8 Direction",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"bundled": false
+		}
+	],
+	"uniqueId": "lg7fl4nicsv",
+	"objectTypes": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"Browser",
+					"Touch",
+					"TelegramMiniApps"
+				],
+				"subfolders": [],
+				"name": "System"
+			},
+			{
+				"items": [
+					"Item"
+				],
+				"subfolders": [],
+				"name": "Sprites"
+			},
+			{
+				"items": [
+					"Camera"
+				],
+				"subfolders": [],
+				"name": "Objects"
+			},
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"ComponentButton",
+							"ComponentText"
+						],
+						"subfolders": [],
+						"name": "Components"
+					}
+				],
+				"name": "UI"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [
+			"ItemList"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Button",
+					"Text"
+				],
+				"subfolders": [],
+				"name": "UIComponents"
+			}
+		]
+	},
+	"layouts": {
+		"items": [
+			"ObjectsRepository",
+			"Scroll",
+			"Welcome"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"ES_Scroll",
+			"ES_Welcome"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"ES_Components",
+					"ES_UI"
+				],
+				"subfolders": [],
+				"name": "UI"
+			}
+		]
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "SFPRODISPLAYBLACKITALIC.OTF",
+							"type": "application/font-sfnt",
+							"sid": 216785201847058,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SFPRODISPLAYLIGHTITALIC.OTF",
+							"type": "application/font-sfnt",
+							"sid": 859458335932653,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SFPRODISPLAYREGULAR.OTF",
+							"type": "application/font-sfnt",
+							"sid": 954289868440396,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SFPRODISPLAYSEMIBOLDITALIC.OTF",
+							"type": "application/font-sfnt",
+							"sid": 100318548389019,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SFPRODISPLAYTHINITALIC.OTF",
+							"type": "application/font-sfnt",
+							"sid": 887527306453283,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SFPRODISPLAYULTRALIGHTITALIC.OTF",
+							"type": "application/font-sfnt",
+							"sid": 534309369955635,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SFPRODISPLAYHEAVYITALIC.OTF",
+							"type": "application/font-sfnt",
+							"sid": 569915292116930,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SFPRODISPLAYMEDIUM.OTF",
+							"type": "application/font-sfnt",
+							"sid": 630476908334908,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SFPRODISPLAYBOLD.OTF",
+							"type": "application/font-sfnt",
+							"sid": 323824778627010,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "SFPro"
+				}
+			]
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 614583742904268,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 113288877992687,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 855769819253135,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 517190262145506,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 967612191609024,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 853877268775358,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 968355943062189,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [
+			"Timeline 1"
+		],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"flowcharts": {
+		"items": [],
+		"subfolders": []
+	},
+	"properties": {
+		"description": "",
+		"version": "",
+		"author": "",
+		"authorEmail": "lostinmind.",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"zAxisScale": "normalized",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": false,
+		"fullscreenMode": "scale-outer",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "portrait",
+		"webgpu": "yes",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"zNear": 1,
+		"zFar": 10000,
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress-logo",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "https",
+		"autoReloadScriptsOnPreview": false,
+		"exportFileStructure": "folders",
+		"uidAllocationMode": "increment"
+	},
+	"viewportWidth": 390,
+	"viewportHeight": 692,
+	"firstLayout": "Scroll"
+}

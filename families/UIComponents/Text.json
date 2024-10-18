@@ -1,0 +1,26 @@
+{
+	"name": "Text",
+	"plugin-id": "Text",
+	"sid": 396119999928331,
+	"instanceVariables": [
+		{
+			"name": "Id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 615883362826855
+		},
+		{
+			"name": "Class",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 721808700080823
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"ComponentText"
+	]
+}

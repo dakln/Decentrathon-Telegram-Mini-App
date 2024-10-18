@@ -1,0 +1,84 @@
+{
+	"name": "Camera",
+	"plugin-id": "Sprite",
+	"sid": 601987672570266,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "MinY",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 329215308592472
+		},
+		{
+			"name": "MaxY",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 803750334947911
+		},
+		{
+			"name": "Smoothness",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 535037623222373
+		},
+		{
+			"name": "Speed",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 439451038914151
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 579514525828599
+		},
+		{
+			"behaviorId": "EightDir",
+			"name": "8Direction",
+			"sid": 366591946091409
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 889196307341832
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6914546,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 558659380412349,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
