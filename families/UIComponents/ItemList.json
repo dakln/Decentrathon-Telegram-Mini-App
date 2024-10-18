@@ -1,0 +1,33 @@
+{
+	"name": "ItemList",
+	"plugin-id": "TiledBg",
+	"sid": 502053581084535,
+	"instanceVariables": [
+		{
+			"name": "Index",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 868674915758332
+		},
+		{
+			"name": "Id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 359417505537403
+		},
+		{
+			"name": "Class",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 918148260040502
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"ComponentItemList"
+	]
+}

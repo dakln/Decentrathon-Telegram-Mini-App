@@ -1,0 +1,134 @@
+{
+	"name": "ES_Search",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "ES_UI"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_Scroll"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 846701049243005
+				}
+			],
+			"actions": [],
+			"sid": 675669604043232,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 695494680438893
+				},
+				{
+					"eventType": "variable",
+					"name": "BOTTOM_OFFSET",
+					"type": "number",
+					"initialValue": "69",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": true,
+					"sid": 559757987032760
+				},
+				{
+					"eventType": "variable",
+					"name": "TOP_OFFSET",
+					"type": "number",
+					"initialValue": "96",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": true,
+					"sid": 521794772478777
+				},
+				{
+					"eventType": "variable",
+					"name": "ITEM_HEIGHT",
+					"type": "number",
+					"initialValue": "136",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": true,
+					"sid": 934905762959459
+				},
+				{
+					"eventType": "variable",
+					"name": "ITEM_OFFSET",
+					"type": "number",
+					"initialValue": "16",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": true,
+					"sid": 245196187587953
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 315372703130673,
+							"parameters": {
+								"count": "100"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 271588069910529,
+							"parameters": {
+								"object-to-create": "ComponentItemList",
+								"layer": "\"Items\"",
+								"x": "ViewportMidX(\"UI\")",
+								"y": "(ViewportTop(\"UI\") + TOP_OFFSET * 2) + ((ITEM_HEIGHT + ITEM_OFFSET) * loopindex)",
+								"create-hierarchy": true,
+								"template-name": "\"CardJob\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ComponentItemList",
+							"sid": 618974830531930,
+							"parameters": {
+								"instance-variable": "Index",
+								"value": "loopindex"
+							}
+						}
+					],
+					"sid": 470941832308471
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 857535578956685,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"callFunction": "setScrollActivated",
+							"sid": 798071106194907,
+							"parameters": [
+								true
+							]
+						}
+					],
+					"sid": 967268250090609
+				}
+			]
+		}
+	],
+	"sid": 618204351342235
+}

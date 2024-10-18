@@ -400,6 +400,27 @@
 				}
 			],
 			"sid": 832597169262571
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 676104743511970,
+					"parameters": {
+						"interval-seconds": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "unload-unused-images",
+					"objectClass": "System",
+					"sid": 801725651521614
+				}
+			],
+			"sid": 158586811337194
 		}
 	],
 	"sid": 107548238185942

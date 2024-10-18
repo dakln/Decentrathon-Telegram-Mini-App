@@ -3,7 +3,7 @@
 	"savedWithRelease": 40702,
 	"name": "Decentrathon",
 	"runtime": "c3",
-	"useWorker": "dom",
+	"useWorker": "worker",
 	"bundleAddons": true,
 	"usedAddons": [
 		{
@@ -12,15 +12,6 @@
 			"name": "Browser",
 			"author": "Scirra",
 			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "LostTelegramMiniAppsSDK",
-			"name": "TelegramMiniApps",
-			"author": "lostinmind.",
-			"bundled": true,
-			"version": "5.1.0.0",
-			"sdkVersion": 2
 		},
 		{
 			"type": "plugin",
@@ -103,7 +94,6 @@
 				"items": [
 					"Browser",
 					"Touch",
-					"TelegramMiniApps",
 					"Anchor",
 					"RotateBahavior",
 					"Tween"
@@ -114,7 +104,8 @@
 			{
 				"items": [
 					"Item",
-					"Checkbox"
+					"Checkbox",
+					"ArrowDropDown"
 				],
 				"subfolders": [],
 				"name": "Sprites"
@@ -133,7 +124,8 @@
 					{
 						"items": [
 							"ComponentButton",
-							"ComponentText"
+							"ComponentText",
+							"ComponentItemList"
 						],
 						"subfolders": [],
 						"name": "Components"
@@ -153,14 +145,13 @@
 	"autosaveData": null,
 	"containers": [],
 	"families": {
-		"items": [
-			"ItemList"
-		],
+		"items": [],
 		"subfolders": [
 			{
 				"items": [
 					"Button",
-					"Text"
+					"Text",
+					"ItemList"
 				],
 				"subfolders": [],
 				"name": "UIComponents"
@@ -169,22 +160,48 @@
 	},
 	"layouts": {
 		"items": [
-			"ObjectsRepository",
 			"Scroll",
 			"Onboarding"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"ObjectsRepository",
+					"UI"
+				],
+				"subfolders": [],
+				"name": "Common"
+			},
+			{
+				"items": [],
+				"subfolders": [],
+				"name": "Onboarding"
+			},
+			{
+				"items": [
+					"Search"
+				],
+				"subfolders": [],
+				"name": "Jobs"
+			},
+			{
+				"items": [],
+				"subfolders": [],
+				"name": "New folder 3"
+			}
+		]
 	},
 	"eventSheets": {
 		"items": [
-			"ES_Scroll",
-			"ES_Onboarding"
+			"ES_Onboarding",
+			"ES_Search"
 		],
 		"subfolders": [
 			{
 				"items": [
 					"ES_Components",
-					"ES_UI"
+					"ES_UI",
+					"ES_Scroll"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -193,7 +210,24 @@
 	},
 	"rootFileFolders": {
 		"script": {
-			"items": [],
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 964829353139596,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "importsForEvents.js",
+					"type": "application/javascript",
+					"sid": 508833609680525,
+					"script-info": {
+						"purpose": "imports-for-events"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"sound": {
@@ -356,50 +390,158 @@
 			"items": [],
 			"subfolders": [
 				{
-					"items": [
+					"items": [],
+					"subfolders": [
 						{
-							"name": "base_field.svg",
-							"type": "image/svg+xml",
-							"sid": 946157976673448,
-							"file-info": {
-								"purpose": "none"
-							}
+							"items": [
+								{
+									"name": "base_field.svg",
+									"type": "image/svg+xml",
+									"sid": 946157976673448,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "base_field_long.svg",
+									"type": "image/svg+xml",
+									"sid": 402689300867757,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "checkbox.svg",
+									"type": "image/svg+xml",
+									"sid": 301224432736639,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "button_next.svg",
+									"type": "image/svg+xml",
+									"sid": 151222830571075,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "ellipse_button.svg",
+									"type": "image/svg+xml",
+									"sid": 210110687644001,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "card_job.svg",
+									"type": "image/svg+xml",
+									"sid": 228775213275092,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "priority_high.svg",
+									"type": "image/svg+xml",
+									"sid": 809084435425415,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "priority_low.svg",
+									"type": "image/svg+xml",
+									"sid": 314064233604819,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "priority_medium.svg",
+									"type": "image/svg+xml",
+									"sid": 200488058386212,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "ui"
 						},
 						{
-							"name": "base_field_long.svg",
-							"type": "image/svg+xml",
-							"sid": 402689300867757,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
-							"name": "checkbox.svg",
-							"type": "image/svg+xml",
-							"sid": 301224432736639,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
-							"name": "button_next.svg",
-							"type": "image/svg+xml",
-							"sid": 151222830571075,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
-							"name": "ellipse_button.svg",
-							"type": "image/svg+xml",
-							"sid": 210110687644001,
-							"file-info": {
-								"purpose": "none"
-							}
+							"items": [
+								{
+									"name": "search.svg",
+									"type": "image/svg+xml",
+									"sid": 945434579652272,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "history.svg",
+									"type": "image/svg+xml",
+									"sid": 374940794016107,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "dashboard.svg",
+									"type": "image/svg+xml",
+									"sid": 148514593590295,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "chat.svg",
+									"type": "image/svg+xml",
+									"sid": 660457423261458,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "empty_ellipse.svg",
+									"type": "image/svg+xml",
+									"sid": 281741817970665,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "notifications.svg",
+									"type": "image/svg+xml",
+									"sid": 364838068854420,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "settings.svg",
+									"type": "image/svg+xml",
+									"sid": 609958988731887,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "empty_job_logo.svg",
+									"type": "image/svg+xml",
+									"sid": 228567747376968,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "icons"
 						}
 					],
-					"subfolders": [],
-					"name": "Images"
+					"name": "svg"
 				}
 			]
 		}
@@ -426,7 +568,7 @@
 		"authorEmail": "lostinmind.",
 		"authorWebsite": "",
 		"appId": "",
-		"pixelRounding": false,
+		"pixelRounding": true,
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
 		"useLoaderLayout": false,
@@ -454,16 +596,16 @@
 		],
 		"orientations": "portrait",
 		"webgpu": "yes",
-		"gpuPreference": "high-performance",
+		"gpuPreference": "default",
 		"scriptsType": "module",
 		"framerateMode": "vsync",
-		"sampling": "trilinear",
+		"sampling": "nearest",
 		"downscaling": "medium",
-		"renderingMode": "auto",
-		"anisotropicFiltering": "auto",
+		"renderingMode": "2d",
+		"anisotropicFiltering": "off",
 		"zNear": 1,
 		"zFar": 10000,
-		"maxSpriteSheetSize": 4096,
+		"maxSpriteSheetSize": 2048,
 		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
@@ -474,5 +616,5 @@
 	},
 	"viewportWidth": 390,
 	"viewportHeight": 692,
-	"firstLayout": "Scroll"
+	"firstLayout": "Onboarding"
 }

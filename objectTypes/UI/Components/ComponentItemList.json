@@ -1,27 +1,21 @@
 {
-	"name": "TiledColor",
+	"name": "ComponentItemList",
 	"plugin-id": "TiledBg",
-	"sid": 974578281597234,
+	"sid": 742649658367180,
 	"isGlobal": false,
 	"instanceVariables": [],
-	"behaviorTypes": [
-		{
-			"behaviorId": "Anchor",
-			"name": "Anchor",
-			"sid": 731950875995451
-		}
-	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"image": {
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"originX": 0.5,
 		"originY": 0.5,
 		"originalSource": "",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
 		"fileType": "image/png",
-		"imageSpriteId": 1727050,
+		"imageSpriteId": 1990324,
 		"useCollisionPoly": true,
 		"tag": ""
 	}

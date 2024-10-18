@@ -43,6 +43,19 @@
 					"disabled": true
 				}
 			]
+		},
+		{
+			"functionName": "onViewportChanged",
+			"functionDescription": "",
+			"functionCategory": "UI",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 262322961983360
 		}
 	],
 	"sid": 700945911700798

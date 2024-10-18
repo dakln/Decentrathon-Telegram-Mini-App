@@ -43,11 +43,6 @@
 			"behaviorId": "EightDir",
 			"name": "8Direction",
 			"sid": 366591946091409
-		},
-		{
-			"behaviorId": "Tween",
-			"name": "Tween",
-			"sid": 889196307341832
 		}
 	],
 	"effectTypes": [],
@@ -56,15 +51,15 @@
 			{
 				"frames": [
 					{
-						"width": 24,
-						"height": 24,
+						"width": 1,
+						"height": 1,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6914546,
+						"imageSpriteId": 6741922,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""

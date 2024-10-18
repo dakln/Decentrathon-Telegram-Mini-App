@@ -1,0 +1,441 @@
+{
+	"name": "ES_Scroll",
+	"events": [
+		{
+			"functionName": "setScrollActivated",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Enabled",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 519261269022990
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 463434612082734,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 992922206591507,
+							"parameters": {
+								"variable": "Enabled"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 152189267925040,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 349914956634442
+						},
+						{
+							"eventType": "variable",
+							"name": "K",
+							"type": "number",
+							"initialValue": "38",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": true,
+							"sid": 421834191184515
+						},
+						{
+							"eventType": "variable",
+							"name": "BOTTOM_OFFSET",
+							"type": "number",
+							"initialValue": "96",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": true,
+							"sid": 489612021217191
+						},
+						{
+							"eventType": "variable",
+							"name": "TOP_OFFSET",
+							"type": "number",
+							"initialValue": "96",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": true,
+							"sid": 304199359169417
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-highest-lowest-value",
+									"objectClass": "System",
+									"sid": 830499101831168,
+									"parameters": {
+										"object": "ItemList",
+										"which": "lowest",
+										"expression": "ItemList.IID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Camera",
+									"sid": 695334355246456,
+									"parameters": {
+										"instance-variable": "MinY",
+										"value": "ItemList.BBoxTop + 24"
+									}
+								}
+							],
+							"sid": 558866528516671,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-highest-lowest-value",
+									"objectClass": "System",
+									"sid": 238079917465592,
+									"parameters": {
+										"object": "ItemList",
+										"which": "highest",
+										"expression": "ItemList.IID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Camera",
+									"sid": 139078918081828,
+									"parameters": {
+										"instance-variable": "MaxY",
+										"value": "ItemList.BBoxBottom - 24"
+									}
+								}
+							],
+							"sid": 835623691543701,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-highestlowest",
+									"objectClass": "ItemList",
+									"sid": 407940831685489,
+									"parameters": {
+										"which": "lowest",
+										"instance-variable": "Index"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Camera",
+									"sid": 233761994905279,
+									"parameters": {
+										"instance-variable": "MinY",
+										"value": "(ViewportTop(\"UI\") + TOP_OFFSET * 4) - K"
+									}
+								}
+							],
+							"sid": 672735648350769
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-highestlowest",
+									"objectClass": "ItemList",
+									"sid": 763965390584475,
+									"parameters": {
+										"which": "highest",
+										"instance-variable": "Index"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Camera",
+									"sid": 478476895128540,
+									"parameters": {
+										"instance-variable": "MaxY",
+										"value": "ItemList.BBoxBottom - (BOTTOM_OFFSET * 2.25) - K"
+									}
+								}
+							],
+							"sid": 991338123210065
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 688410319498406,
+									"parameters": {
+										"group-name": "\"Scroll\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 692601729979222
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 314046407362788,
+							"parameters": {
+								"variable": "Enabled"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 531298456553051,
+							"parameters": {
+								"group-name": "\"Scroll\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 800301397003619
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Scroll",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 636664764198341
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-touch",
+							"objectClass": "Touch",
+							"sid": 391432670828097
+						}
+					],
+					"actions": [
+						{
+							"id": "set-max-speed",
+							"objectClass": "Camera",
+							"sid": 418560273980487,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"max-speed": "max(Touch.SpeedAt(0), 4000)"
+							}
+						}
+					],
+					"sid": 892828107687252,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 505143009736101,
+									"parameters": {
+										"first-value": "Touch.AngleAt(0)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "You can change the x3 multiplier to increase or decrease the speed"
+								},
+								{
+									"id": "set-vector-y",
+									"objectClass": "Camera",
+									"sid": 791897869051113,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"vector-y": "-Touch.SpeedAt(0) * Self.Speed"
+									}
+								}
+							],
+							"sid": 593685464482696
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 220139556819587,
+									"parameters": {
+										"first-value": "Touch.AngleAt(0)",
+										"comparison": 2,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "You can change the x3 multiplier to increase or decrease the speed"
+								},
+								{
+									"id": "set-vector-y",
+									"objectClass": "Camera",
+									"sid": 416268198640437,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"vector-y": "Touch.SpeedAt(0) * Self.Speed"
+									}
+								}
+							],
+							"sid": 129798802124702
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-touch",
+							"objectClass": "Touch",
+							"sid": 193762152483816,
+							"disabled": true,
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 896573866576967,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "Camera",
+									"sid": 996740030446851,
+									"parameters": {
+										"comparison": 2,
+										"y-co-ordinate": "Self.MinY"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Camera",
+									"sid": 403442392703400,
+									"disabled": true,
+									"parameters": {
+										"y": "Self.MinY"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Camera",
+									"sid": 715581657738757,
+									"parameters": {
+										"y": "lerp(Self.Y, Self.MinY, Self.Smoothness)"
+									}
+								}
+							],
+							"sid": 949728753165119
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "Camera",
+									"sid": 920414085871654,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "Self.MaxY"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Camera",
+									"sid": 151658483960976,
+									"disabled": true,
+									"parameters": {
+										"y": "Self.MaxY"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Camera",
+									"sid": 939391162054502,
+									"parameters": {
+										"y": "lerp(Self.Y, Self.MaxY, Self.Smoothness)"
+									}
+								}
+							],
+							"sid": 564408879909794
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Camera",
+							"sid": 970337588135990,
+							"behaviorType": "8Direction"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "Camera",
+							"sid": 625005513778846,
+							"parameters": {
+								"y": "roundToDp(Self.Y, 1)"
+							}
+						}
+					],
+					"sid": 115196419037933,
+					"disabled": true
+				}
+			],
+			"sid": 810162291380297
+		}
+	],
+	"sid": 772394817085299
+}
