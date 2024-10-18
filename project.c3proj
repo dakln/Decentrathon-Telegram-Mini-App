@@ -24,6 +24,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "SVGPicture",
+			"name": "SVG Picture",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -66,6 +73,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Rotate",
+			"name": "Rotate",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Tween",
 			"name": "Tween",
 			"author": "Scirra",
@@ -81,27 +95,34 @@
 	],
 	"uniqueId": "lg7fl4nicsv",
 	"objectTypes": {
-		"items": [],
+		"items": [
+			"OnboardingStep"
+		],
 		"subfolders": [
 			{
 				"items": [
 					"Browser",
 					"Touch",
-					"TelegramMiniApps"
+					"TelegramMiniApps",
+					"Anchor",
+					"RotateBahavior",
+					"Tween"
 				],
 				"subfolders": [],
 				"name": "System"
 			},
 			{
 				"items": [
-					"Item"
+					"Item",
+					"Checkbox"
 				],
 				"subfolders": [],
 				"name": "Sprites"
 			},
 			{
 				"items": [
-					"Camera"
+					"Camera",
+					"SVG"
 				],
 				"subfolders": [],
 				"name": "Objects"
@@ -119,6 +140,13 @@
 					}
 				],
 				"name": "UI"
+			},
+			{
+				"items": [
+					"TiledColor"
+				],
+				"subfolders": [],
+				"name": "TiledObjects"
 			}
 		]
 	},
@@ -143,14 +171,14 @@
 		"items": [
 			"ObjectsRepository",
 			"Scroll",
-			"Welcome"
+			"Onboarding"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
 			"ES_Scroll",
-			"ES_Welcome"
+			"ES_Onboarding"
 		],
 		"subfolders": [
 			{
@@ -186,7 +214,7 @@
 				{
 					"items": [
 						{
-							"name": "SFPRODISPLAYBLACKITALIC.OTF",
+							"name": "SF Pro Display Black Italic.OTF",
 							"type": "application/font-sfnt",
 							"sid": 216785201847058,
 							"file-info": {
@@ -194,7 +222,7 @@
 							}
 						},
 						{
-							"name": "SFPRODISPLAYLIGHTITALIC.OTF",
+							"name": "SF Pro Display Light Italic.OTF",
 							"type": "application/font-sfnt",
 							"sid": 859458335932653,
 							"file-info": {
@@ -202,7 +230,7 @@
 							}
 						},
 						{
-							"name": "SFPRODISPLAYREGULAR.OTF",
+							"name": "SF Pro Display Regular.OTF",
 							"type": "application/font-sfnt",
 							"sid": 954289868440396,
 							"file-info": {
@@ -210,7 +238,7 @@
 							}
 						},
 						{
-							"name": "SFPRODISPLAYSEMIBOLDITALIC.OTF",
+							"name": "SF Pro Display Bold Italic.OTF",
 							"type": "application/font-sfnt",
 							"sid": 100318548389019,
 							"file-info": {
@@ -218,7 +246,7 @@
 							}
 						},
 						{
-							"name": "SFPRODISPLAYTHINITALIC.OTF",
+							"name": "SF Pro Display Thin Italic.OTF",
 							"type": "application/font-sfnt",
 							"sid": 887527306453283,
 							"file-info": {
@@ -226,7 +254,7 @@
 							}
 						},
 						{
-							"name": "SFPRODISPLAYULTRALIGHTITALIC.OTF",
+							"name": "SF Pro Display Ultra Light Italic.OTF",
 							"type": "application/font-sfnt",
 							"sid": 534309369955635,
 							"file-info": {
@@ -234,7 +262,7 @@
 							}
 						},
 						{
-							"name": "SFPRODISPLAYHEAVYITALIC.OTF",
+							"name": "SF Pro Display Heavy Italic.OTF",
 							"type": "application/font-sfnt",
 							"sid": 569915292116930,
 							"file-info": {
@@ -242,7 +270,7 @@
 							}
 						},
 						{
-							"name": "SFPRODISPLAYMEDIUM.OTF",
+							"name": "SF Pro Display Medium.OTF",
 							"type": "application/font-sfnt",
 							"sid": 630476908334908,
 							"file-info": {
@@ -250,7 +278,7 @@
 							}
 						},
 						{
-							"name": "SFPRODISPLAYBOLD.OTF",
+							"name": "SF Pro Display Bold.OTF",
 							"type": "application/font-sfnt",
 							"sid": 323824778627010,
 							"file-info": {
@@ -326,7 +354,54 @@
 		},
 		"general": {
 			"items": [],
-			"subfolders": []
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "base_field.svg",
+							"type": "image/svg+xml",
+							"sid": 946157976673448,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "base_field_long.svg",
+							"type": "image/svg+xml",
+							"sid": 402689300867757,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "checkbox.svg",
+							"type": "image/svg+xml",
+							"sid": 301224432736639,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "button_next.svg",
+							"type": "image/svg+xml",
+							"sid": 151222830571075,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "ellipse_button.svg",
+							"type": "image/svg+xml",
+							"sid": 210110687644001,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Images"
+				}
+			]
 		}
 	},
 	"timelines": {
@@ -388,7 +463,7 @@
 		"anisotropicFiltering": "auto",
 		"zNear": 1,
 		"zFar": 10000,
-		"maxSpriteSheetSize": 2048,
+		"maxSpriteSheetSize": 4096,
 		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",

@@ -1,0 +1,28 @@
+{
+	"name": "RotateBahavior",
+	"plugin-id": "TiledBg",
+	"sid": 320537194803167,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Rotate",
+			"name": "Rotate",
+			"sid": 473756483353625
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 1,
+		"height": 1,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 8170640,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

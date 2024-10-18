@@ -4,6 +4,45 @@
 		{
 			"eventType": "include",
 			"includeSheet": "ES_Components"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 348548231194532
+				}
+			],
+			"actions": [],
+			"sid": 920729030573563,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-fullscreen",
+							"objectClass": "Browser",
+							"sid": 945253301279834,
+							"disabled": true,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "request-fullscreen",
+							"objectClass": "Browser",
+							"sid": 822220851401379,
+							"parameters": {
+								"mode": "stretch-scale-outer",
+								"navigation-ui": "auto"
+							}
+						}
+					],
+					"sid": 526713278087744,
+					"disabled": true
+				}
+			]
 		}
 	],
 	"sid": 700945911700798
