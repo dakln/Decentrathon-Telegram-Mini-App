@@ -238,7 +238,8 @@
 					"Filters",
 					"JobOverview",
 					"History",
-					"Dashboard"
+					"Dashboard",
+					"Chat"
 				],
 				"subfolders": [],
 				"name": "Main"
@@ -284,7 +285,8 @@
 			"ES_Dashboard",
 			"ES_Notifications",
 			"ES_Filters",
-			"ES_Settings"
+			"ES_Settings",
+			"ES_Chat"
 		],
 		"subfolders": [
 			{

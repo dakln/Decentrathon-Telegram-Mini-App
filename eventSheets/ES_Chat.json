@@ -1,0 +1,65 @@
+{
+	"name": "ES_Chat",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "ES_UI"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_Header"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_NavigationBar"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_Scroll"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 534598103543241,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 779442164527293,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 843069779338315,
+							"parameters": {
+								"instance-variable": "Class",
+								"comparison": 0,
+								"value": "\"Chat\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Switch section",
+							"sid": 864572589579642,
+							"parameters": [
+								"Button.Index",
+								"Button.Class"
+							]
+						}
+					],
+					"sid": 572134714283100
+				}
+			]
+		}
+	],
+	"sid": 483287114010538
+}
