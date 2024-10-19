@@ -1391,6 +1391,69 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "SVG",
+					"properties": {
+						"svg-file": 500619049836519,
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 450,
+					"sid": 811921852919339,
+					"tags": "",
+					"instanceVariables": {
+						"Id": ""
+					},
+					"behaviors": {},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 450,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 811921852919339,
+						"expanded": true
+					},
+					"world": {
+						"x": 195,
+						"y": 371,
+						"width": 390,
+						"height": 134,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 388590671585403,

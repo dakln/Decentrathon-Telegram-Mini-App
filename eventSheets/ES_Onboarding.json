@@ -390,29 +390,6 @@
 				}
 			],
 			"sid": 508305185517188
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-focused",
-					"objectClass": "TextInput",
-					"sid": 462616176062113,
-					"isInverted": true
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 962222382478463
-				}
-			],
-			"actions": [
-				{
-					"type": "script",
-					"script": "if (window.scrollY > 0) window.scrollTo(0, 0);"
-				}
-			],
-			"sid": 145539674483559
 		}
 	],
 	"sid": 183252491871034

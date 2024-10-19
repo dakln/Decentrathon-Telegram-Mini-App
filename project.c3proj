@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 40702,
-	"name": "Decentrathon",
+	"name": "BBCompany - Decentrathon 2.0",
 	"runtime": "c3",
 	"useWorker": "dom",
 	"bundleAddons": true,
@@ -918,6 +918,14 @@
 									"file-info": {
 										"purpose": "none"
 									}
+								},
+								{
+									"name": "Frame_691.svg",
+									"type": "image/svg+xml",
+									"sid": 500619049836519,
+									"file-info": {
+										"purpose": "none"
+									}
 								}
 							],
 							"subfolders": [],
@@ -974,11 +982,11 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "",
-		"author": "",
-		"authorEmail": "lostinmind.",
+		"version": "0.0.0.1",
+		"author": "BBCompany",
+		"authorEmail": "",
 		"authorWebsite": "",
-		"appId": "",
+		"appId": "com.bbcompany.decetrathon",
 		"pixelRounding": true,
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
