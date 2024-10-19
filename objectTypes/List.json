@@ -1,0 +1,36 @@
+{
+	"name": "List",
+	"plugin-id": "TiledBg",
+	"sid": 934830190566210,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 603540654409775
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 673364124147326
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 1,
+		"height": 1,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 3623836,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

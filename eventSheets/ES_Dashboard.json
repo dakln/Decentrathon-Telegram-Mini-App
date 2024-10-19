@@ -1,0 +1,22 @@
+{
+	"name": "ES_Dashboard",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "ES_UI"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_Header"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_NavigationBar"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_Scroll"
+		}
+	],
+	"sid": 197370304878495
+}

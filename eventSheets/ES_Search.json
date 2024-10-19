@@ -7,23 +7,40 @@
 		},
 		{
 			"eventType": "include",
+			"includeSheet": "ES_Header"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_NavigationBar"
+		},
+		{
+			"eventType": "include",
 			"includeSheet": "ES_Scroll"
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-touched-object",
+					"id": "on-tap-object",
 					"objectClass": "Touch",
-					"sid": 928288707827142,
+					"sid": 142217591465605,
 					"parameters": {
-						"object": "Button",
-						"type": "end"
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Button",
+					"sid": 389825963498863,
+					"parameters": {
+						"instance-variable": "Class",
+						"comparison": 0,
+						"value": "\"PageHeader\""
 					}
 				}
 			],
 			"actions": [],
-			"sid": 607063890900191,
+			"sid": 589448393932341,
 			"children": [
 				{
 					"eventType": "block",
@@ -31,24 +48,41 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Button",
-							"sid": 304598031405850,
+							"sid": 224353866368463,
 							"parameters": {
 								"instance-variable": "Id",
 								"comparison": 0,
-								"value": "\"profile\""
+								"value": "\"filters\""
 							}
 						}
 					],
 					"actions": [
 						{
 							"callFunction": "goToLayout",
-							"sid": 626650419576857,
+							"sid": 212793077920320,
 							"parameters": [
-								"\"Profile\""
+								"\"Filters\""
 							]
 						}
 					],
-					"sid": 688198629384548
+					"sid": 382713530933274
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 288177056780078,
+							"parameters": {
+								"instance-variable": "Id",
+								"comparison": 0,
+								"value": "\"search\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 520070611491326
 				}
 			]
 		},
@@ -56,15 +90,64 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 555837162064578,
+					"parameters": {
+						"object": "Item"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 937137790896777,
+					"parameters": {
+						"first-value": "Functions.isTouchingHeaderOrNavigationBar",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "goToLayout",
+					"sid": 869077043680945,
+					"parameters": [
+						"\"JobOverview\""
+					]
+				}
+			],
+			"sid": 610804051347773
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-instance-signal",
-					"objectClass": "ComponentItemList",
+					"objectClass": "ComponentJobItem",
 					"sid": 766259399496447,
 					"parameters": {
 						"tag": "\"CreatedJobItem\""
 					}
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "ComponentJobItem",
+					"sid": 674332410940478,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "List",
+						"x": false,
+						"y": true,
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				}
+			],
 			"sid": 960361355560594,
 			"children": [
 				{
@@ -72,7 +155,7 @@
 					"conditions": [
 						{
 							"id": "pick-children",
-							"objectClass": "ComponentItemList",
+							"objectClass": "ComponentJobItem",
 							"sid": 476799741150020,
 							"parameters": {
 								"child": "Text",
@@ -103,7 +186,7 @@
 									"objectClass": "Text",
 									"sid": 359350630256864,
 									"parameters": {
-										"text": "\"$\" & Functions.formatNumber(ComponentItemList.SalaryFrom, 0) & \" – $\" & Functions.formatNumber(ComponentItemList.SalaryTo, 0) &\"/month\""
+										"text": "\"$\" & Functions.formatNumber(ComponentJobItem.SalaryFrom, 0) & \" – $\" & Functions.formatNumber(ComponentJobItem.SalaryTo, 0) &\"/month\""
 									}
 								}
 							],
@@ -129,7 +212,7 @@
 									"objectClass": "Text",
 									"sid": 777010787325950,
 									"parameters": {
-										"text": "ComponentItemList.Location"
+										"text": "ComponentJobItem.Location"
 									}
 								}
 							],
@@ -142,7 +225,7 @@
 					"conditions": [
 						{
 							"id": "pick-children",
-							"objectClass": "ComponentItemList",
+							"objectClass": "ComponentJobItem",
 							"sid": 754787545970676,
 							"parameters": {
 								"child": "SVG",
@@ -168,7 +251,7 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "ComponentItemList",
+									"objectClass": "ComponentJobItem",
 									"sid": 757985393487351,
 									"parameters": {
 										"instance-variable": "JobPriority",
@@ -194,7 +277,7 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "ComponentItemList",
+									"objectClass": "ComponentJobItem",
 									"sid": 447980968108277,
 									"parameters": {
 										"instance-variable": "JobPriority",
@@ -220,7 +303,7 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "ComponentItemList",
+									"objectClass": "ComponentJobItem",
 									"sid": 103997732010999,
 									"parameters": {
 										"instance-variable": "JobPriority",
@@ -309,9 +392,9 @@
 						{
 							"id": "repeat",
 							"objectClass": "System",
-							"sid": 315372703130673,
+							"sid": 476837797828871,
 							"parameters": {
-								"count": "100"
+								"count": "int(random(8,21))"
 							}
 						}
 					],
@@ -319,10 +402,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 271588069910529,
+							"sid": 975042039459054,
 							"parameters": {
-								"object-to-create": "ComponentItemList",
-								"layer": "\"Items\"",
+								"object-to-create": "ComponentJobItem",
+								"layer": "\"Main\"",
 								"x": "ViewportMidX(\"UI\")",
 								"y": "(ViewportTop(\"UI\") + TOP_OFFSET * 2) + ((ITEM_HEIGHT + ITEM_OFFSET) * loopindex)",
 								"create-hierarchy": true,
@@ -331,7 +414,7 @@
 						},
 						{
 							"id": "set-instvar-value",
-							"objectClass": "ComponentItemList",
+							"objectClass": "ComponentJobItem",
 							"sid": 618974830531930,
 							"parameters": {
 								"instance-variable": "Index",
@@ -340,7 +423,7 @@
 						},
 						{
 							"id": "set-instvar-value",
-							"objectClass": "ComponentItemList",
+							"objectClass": "ComponentJobItem",
 							"sid": 320648321092484,
 							"parameters": {
 								"instance-variable": "Location",
@@ -349,7 +432,7 @@
 						},
 						{
 							"id": "set-instvar-value",
-							"objectClass": "ComponentItemList",
+							"objectClass": "ComponentJobItem",
 							"sid": 289923894497235,
 							"parameters": {
 								"instance-variable": "SalaryFrom",
@@ -358,7 +441,7 @@
 						},
 						{
 							"id": "set-instvar-value",
-							"objectClass": "ComponentItemList",
+							"objectClass": "ComponentJobItem",
 							"sid": 968754268069088,
 							"parameters": {
 								"instance-variable": "SalaryTo",
@@ -367,7 +450,7 @@
 						},
 						{
 							"id": "set-instvar-value",
-							"objectClass": "ComponentItemList",
+							"objectClass": "ComponentJobItem",
 							"sid": 982977768788800,
 							"parameters": {
 								"instance-variable": "JobPriority",
@@ -376,7 +459,7 @@
 						},
 						{
 							"id": "instance-signal",
-							"objectClass": "ComponentItemList",
+							"objectClass": "ComponentJobItem",
 							"sid": 942535195255632,
 							"parameters": {
 								"tag": "\"CreatedJobItem\""
@@ -405,7 +488,7 @@
 							"objectClass": "Text",
 							"sid": 583967873807237,
 							"parameters": {
-								"text": "ComponentItemList.Count & \" JOBS FOUND\""
+								"text": "ComponentJobItem.Count & \" JOBS FOUND\""
 							}
 						}
 					],
@@ -424,14 +507,54 @@
 							}
 						},
 						{
-							"callFunction": "setScrollActivated",
-							"sid": 798071106194907,
-							"parameters": [
-								true
-							]
+							"id": "move-to-top",
+							"objectClass": "TiledInvisibility",
+							"sid": 997113191046328
 						}
 					],
-					"sid": 967268250090609
+					"sid": 967268250090609,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-highestlowest",
+									"objectClass": "Item",
+									"sid": 973926178229574,
+									"parameters": {
+										"which": "highest",
+										"instance-variable": "Index"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-height",
+									"objectClass": "List",
+									"sid": 396360217912471,
+									"parameters": {
+										"height": "distance(0, List.Y, 0, Item.Y) + (Item.Height / 2) + 16"
+									}
+								}
+							],
+							"sid": 154505677889812
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "setScrollActivated",
+									"sid": 313510140964852,
+									"parameters": [
+										true,
+										"\"\""
+									]
+								}
+							],
+							"sid": 136809890714783
+						}
+					]
 				}
 			]
 		}

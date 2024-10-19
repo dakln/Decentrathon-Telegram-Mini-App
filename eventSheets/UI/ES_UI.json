@@ -9,53 +9,242 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-start",
-					"objectClass": "Touch",
-					"sid": 348548231194532
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 615748607855476
 				}
 			],
-			"actions": [],
-			"sid": 920729030573563,
-			"children": [
+			"actions": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-fullscreen",
-							"objectClass": "Browser",
-							"sid": 945253301279834,
-							"disabled": true,
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "request-fullscreen",
-							"objectClass": "Browser",
-							"sid": 822220851401379,
-							"parameters": {
-								"mode": "stretch-scale-outer",
-								"navigation-ui": "auto"
-							}
-						}
-					],
-					"sid": 526713278087744,
-					"disabled": true
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 997070538418392,
+					"parameters": {
+						"variable": "CurrentPage",
+						"value": "LayoutName"
+					}
+				},
+				{
+					"callFunction": "endTransition",
+					"sid": 183600581895199
 				}
-			]
+			],
+			"sid": 140994960496639
 		},
 		{
-			"functionName": "onViewportChanged",
+			"functionName": "endTransition",
 			"functionDescription": "",
-			"functionCategory": "UI",
+			"functionCategory": "Transition",
 			"functionReturnType": "none",
 			"functionCopyPicked": false,
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
-			"sid": 262322961983360
+			"actions": [
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 485625067073537,
+					"parameters": {
+						"layer": "\"Main\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 497117013461282,
+					"parameters": {
+						"layer": "\"NavigationBar\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 682684632254914,
+					"parameters": {
+						"layer": "\"Header\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "TiledTransition",
+					"sid": 289497271650654,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "TiledTransition",
+					"sid": 354573767180882,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "0.3",
+						"ease": "easeoutcubic",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 224893609066250
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 236925041416774,
+					"parameters": {
+						"layer": "\"NavigationBar\"",
+						"interactive": true
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 945246638865739,
+					"parameters": {
+						"layer": "\"Header\"",
+						"interactive": true
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 341293621333377,
+					"parameters": {
+						"layer": "\"Main\"",
+						"interactive": true
+					}
+				}
+			],
+			"sid": 889519901583735
+		},
+		{
+			"functionName": "goToLayout",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Name",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 209343156528097
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 878494906884823,
+					"parameters": {
+						"variable": "Name",
+						"comparison": 1,
+						"value": "LayoutName"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 957503314154818,
+					"parameters": {
+						"layer": "\"Main\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 293078749114156,
+					"parameters": {
+						"layer": "\"NavigationBar\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 381388670340628,
+					"parameters": {
+						"layer": "\"Header\"",
+						"interactive": false
+					}
+				}
+			],
+			"sid": 778324806355756,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 518138347007549,
+							"parameters": {
+								"variable": "PreviousPage",
+								"value": "LayoutName"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 155814826024206,
+							"parameters": {
+								"variable": "CurrentPage",
+								"value": "Name"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "TiledTransition",
+							"sid": 760924235223161,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "0.4",
+								"ease": "easeinoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 905005032890093
+						},
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 807437891307224,
+							"parameters": {
+								"layout": "Name"
+							}
+						}
+					],
+					"sid": 287542728757919
+				}
+			]
 		}
 	],
 	"sid": 700945911700798

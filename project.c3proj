@@ -31,6 +31,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "SVGPicture",
 			"name": "SVG Picture",
 			"author": "Scirra",
@@ -80,8 +87,15 @@
 		},
 		{
 			"type": "behavior",
-			"id": "EightDir",
-			"name": "8 Direction",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -98,20 +112,14 @@
 			"name": "Tween",
 			"author": "Scirra",
 			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "scrollto",
-			"name": "Scroll To",
-			"author": "Scirra",
-			"bundled": false
 		}
 	],
 	"uniqueId": "lg7fl4nicsv",
 	"objectTypes": {
 		"items": [
 			"OnboardingStep",
-			"HTMLElement"
+			"HTMLElement",
+			"List"
 		],
 		"subfolders": [
 			{
@@ -142,8 +150,8 @@
 			},
 			{
 				"items": [
-					"Camera",
-					"SVG"
+					"SVG",
+					"Box"
 				],
 				"subfolders": [],
 				"name": "Objects"
@@ -155,10 +163,11 @@
 						"items": [
 							"ComponentButton",
 							"ComponentText",
-							"ComponentItemList",
+							"ComponentJobItem",
 							"ComponentCheckbox",
 							"ComponentNavigationBar",
-							"ComponentHeader"
+							"ComponentHeader",
+							"ComponentItem"
 						],
 						"subfolders": [],
 						"name": "Components"
@@ -170,7 +179,8 @@
 				"items": [
 					"TiledColor",
 					"TiledBar",
-					"TiledTransition"
+					"TiledTransition",
+					"TiledInvisibility"
 				],
 				"subfolders": [],
 				"name": "TiledObjects"
@@ -193,7 +203,7 @@
 				"items": [
 					"Button",
 					"Text",
-					"ItemList",
+					"Item",
 					"Bar",
 					"NavigationBar",
 					"Header"
@@ -224,17 +234,23 @@
 			},
 			{
 				"items": [
-					"Search"
+					"Search",
+					"Filters",
+					"JobOverview",
+					"History",
+					"Dashboard"
 				],
 				"subfolders": [],
-				"name": "Jobs"
+				"name": "Main"
 			},
 			{
 				"items": [
-					"Profile"
+					"Profile",
+					"Notifications",
+					"Settings"
 				],
 				"subfolders": [],
-				"name": "Profile"
+				"name": "Header"
 			},
 			{
 				"items": [],
@@ -245,6 +261,16 @@
 				"items": [],
 				"subfolders": [],
 				"name": "New folder 2"
+			},
+			{
+				"items": [],
+				"subfolders": [],
+				"name": "New folder2"
+			},
+			{
+				"items": [],
+				"subfolders": [],
+				"name": "New folder2"
 			}
 		]
 	},
@@ -252,8 +278,13 @@
 		"items": [
 			"ES_Onboarding",
 			"ES_Search",
-			"ES_Misc",
-			"ES_Profile"
+			"ES_Profile",
+			"ES_JobOverview",
+			"ES_History",
+			"ES_Dashboard",
+			"ES_Notifications",
+			"ES_Filters",
+			"ES_Settings"
 		],
 		"subfolders": [
 			{
@@ -264,6 +295,21 @@
 				],
 				"subfolders": [],
 				"name": "UI"
+			},
+			{
+				"items": [
+					"ES_Misc"
+				],
+				"subfolders": [],
+				"name": "Misc"
+			},
+			{
+				"items": [
+					"ES_NavigationBar",
+					"ES_Header"
+				],
+				"subfolders": [],
+				"name": "Shared"
 			}
 		]
 	},
@@ -273,17 +319,9 @@
 				{
 					"name": "main.js",
 					"type": "application/javascript",
-					"sid": 964829353139596,
+					"sid": 472078092193856,
 					"script-info": {
 						"purpose": "main"
-					}
-				},
-				{
-					"name": "importsForEvents.js",
-					"type": "application/javascript",
-					"sid": 508833609680525,
-					"script-info": {
-						"purpose": "imports-for-events"
 					}
 				}
 			],
@@ -540,6 +578,38 @@
 									"file-info": {
 										"purpose": "none"
 									}
+								},
+								{
+									"name": "button_section.svg",
+									"type": "image/svg+xml",
+									"sid": 621267972784845,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "button_section_2.svg",
+									"type": "image/svg+xml",
+									"sid": 746695425063098,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "button_default.svg",
+									"type": "image/svg+xml",
+									"sid": 779613975947941,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "rectangle_big.svg",
+									"type": "image/svg+xml",
+									"sid": 169957384692340,
+									"file-info": {
+										"purpose": "none"
+									}
 								}
 							],
 							"subfolders": [],
@@ -618,6 +688,22 @@
 									"file-info": {
 										"purpose": "none"
 									}
+								},
+								{
+									"name": "close.svg",
+									"type": "image/svg+xml",
+									"sid": 890064282736360,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "parameters.svg",
+									"type": "image/svg+xml",
+									"sid": 840969274776169,
+									"file-info": {
+										"purpose": "none"
+									}
 								}
 							],
 							"subfolders": [],
@@ -660,6 +746,180 @@
 							],
 							"subfolders": [],
 							"name": "other"
+						},
+						{
+							"items": [
+								{
+									"name": "Frame_724.svg",
+									"type": "image/svg+xml",
+									"sid": 921994382878093,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_735.svg",
+									"type": "image/svg+xml",
+									"sid": 735834157811849,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_736.svg",
+									"type": "image/svg+xml",
+									"sid": 961818408831042,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_737.svg",
+									"type": "image/svg+xml",
+									"sid": 450727065779099,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_738.svg",
+									"type": "image/svg+xml",
+									"sid": 722331253759760,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_709.svg",
+									"type": "image/svg+xml",
+									"sid": 958287005033531,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_712.svg",
+									"type": "image/svg+xml",
+									"sid": 712499353459728,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_713.svg",
+									"type": "image/svg+xml",
+									"sid": 656721771052842,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_725.svg",
+									"type": "image/svg+xml",
+									"sid": 650892382055314,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_714.svg",
+									"type": "image/svg+xml",
+									"sid": 402985172205287,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_723.svg",
+									"type": "image/svg+xml",
+									"sid": 555822611768883,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_706.svg",
+									"type": "image/svg+xml",
+									"sid": 312170149054878,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_726.svg",
+									"type": "image/svg+xml",
+									"sid": 352716286651089,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_727.svg",
+									"type": "image/svg+xml",
+									"sid": 344839125478093,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_728.svg",
+									"type": "image/svg+xml",
+									"sid": 699819209909262,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_729.svg",
+									"type": "image/svg+xml",
+									"sid": 873162374119814,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_730.svg",
+									"type": "image/svg+xml",
+									"sid": 747512281660309,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_731.svg",
+									"type": "image/svg+xml",
+									"sid": 659138117621747,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_732.svg",
+									"type": "image/svg+xml",
+									"sid": 569042894520367,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_740.svg",
+									"type": "image/svg+xml",
+									"sid": 591703436566272,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "Frame_741.svg",
+									"type": "image/svg+xml",
+									"sid": 626119830596752,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "test_only"
 						}
 					],
 					"name": "svg"
@@ -678,6 +938,14 @@
 							"name": "ProfileCard.css",
 							"type": "text/css",
 							"sid": 919248874323256,
+							"file-info": {
+								"purpose": "stylesheet"
+							}
+						},
+						{
+							"name": "Index.css",
+							"type": "text/css",
+							"sid": 818818538257134,
 							"file-info": {
 								"purpose": "stylesheet"
 							}

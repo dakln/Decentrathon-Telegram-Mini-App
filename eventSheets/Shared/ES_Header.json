@@ -1,0 +1,98 @@
+{
+	"name": "ES_Header",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 622343897421810,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 466277636039423,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 593049176394574,
+							"parameters": {
+								"instance-variable": "Id",
+								"comparison": 0,
+								"value": "\"profile\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "goToLayout",
+							"sid": 318087561580361,
+							"parameters": [
+								"\"Profile\""
+							]
+						}
+					],
+					"sid": 365159676318024
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 510787897960884,
+							"parameters": {
+								"instance-variable": "Id",
+								"comparison": 0,
+								"value": "\"notifications\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "goToLayout",
+							"sid": 580005536709443,
+							"parameters": [
+								"\"Notifications\""
+							]
+						}
+					],
+					"sid": 678475511718439
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 743141762425779,
+							"parameters": {
+								"instance-variable": "Id",
+								"comparison": 0,
+								"value": "\"settings\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "goToLayout",
+							"sid": 361615016909227,
+							"parameters": [
+								"\"Settings\""
+							]
+						}
+					],
+					"sid": 838191677896044
+				}
+			]
+		}
+	],
+	"sid": 133927498629387
+}

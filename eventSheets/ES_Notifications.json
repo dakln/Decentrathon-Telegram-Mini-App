@@ -1,5 +1,5 @@
 {
-	"name": "ES_Profile",
+	"name": "ES_Notifications",
 	"events": [
 		{
 			"eventType": "include",
@@ -23,21 +23,21 @@
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 839306614447323
+					"sid": 680546975474316
 				}
 			],
 			"actions": [
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 608926311884193,
+					"sid": 484804907627079,
 					"parameters": {
 						"seconds": "0.05"
 					}
 				},
 				{
 					"callFunction": "setScrollActivated",
-					"sid": 816642557151180,
+					"sid": 996108305520421,
 					"parameters": [
 						true,
 						"\"\""
@@ -46,7 +46,7 @@
 				{
 					"id": "pin-to-object-properties",
 					"objectClass": "ComponentItem",
-					"sid": 607771936679101,
+					"sid": 261565621675012,
 					"behaviorType": "Pin",
 					"parameters": {
 						"pin-to": "List",
@@ -59,7 +59,8 @@
 					}
 				}
 			],
-			"sid": 333051125377626
+			"sid": 499416802608817,
+			"disabled": true
 		},
 		{
 			"eventType": "block",
@@ -67,7 +68,7 @@
 				{
 					"id": "on-touched-object",
 					"objectClass": "Touch",
-					"sid": 117369814405561,
+					"sid": 985592541510192,
 					"parameters": {
 						"object": "Button",
 						"type": "end"
@@ -75,7 +76,7 @@
 				}
 			],
 			"actions": [],
-			"sid": 785531789591965,
+			"sid": 842221313851692,
 			"children": [
 				{
 					"eventType": "block",
@@ -83,7 +84,7 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Button",
-							"sid": 626518190699763,
+							"sid": 757540146510580,
 							"parameters": {
 								"instance-variable": "Id",
 								"comparison": 0,
@@ -94,16 +95,16 @@
 					"actions": [
 						{
 							"callFunction": "goToLayout",
-							"sid": 319273943649139,
+							"sid": 502974005298141,
 							"parameters": [
 								"\"Search\""
 							]
 						}
 					],
-					"sid": 315382662680178
+					"sid": 383771533811851
 				}
 			]
 		}
 	],
-	"sid": 793775926464940
+	"sid": 268393033462598
 }

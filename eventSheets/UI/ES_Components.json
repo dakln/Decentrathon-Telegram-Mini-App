@@ -229,14 +229,14 @@
 							"conditions": [
 								{
 									"id": "on-created",
-									"objectClass": "ItemList",
+									"objectClass": "Item",
 									"sid": 771268067557120
 								}
 							],
 							"actions": [
 								{
 									"id": "instance-signal",
-									"objectClass": "ItemList",
+									"objectClass": "Item",
 									"sid": 444164296116570,
 									"parameters": {
 										"tag": "\"Initialize\""
@@ -250,7 +250,7 @@
 							"conditions": [
 								{
 									"id": "on-instance-signal",
-									"objectClass": "ItemList",
+									"objectClass": "Item",
 									"sid": 857838356022337,
 									"parameters": {
 										"tag": "\"Initialize\""
@@ -266,7 +266,7 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 519400337619665,
 											"parameters": {
 												"instance-variable": "IWidth",
@@ -275,7 +275,7 @@
 										},
 										{
 											"id": "set-instvar-value",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 626805322927224,
 											"parameters": {
 												"instance-variable": "IHeight",
@@ -292,7 +292,7 @@
 							"conditions": [
 								{
 									"id": "on-instance-signal",
-									"objectClass": "ItemList",
+									"objectClass": "Item",
 									"sid": 456448239217431,
 									"parameters": {
 										"tag": "\"Tap\""
@@ -301,8 +301,16 @@
 							],
 							"actions": [
 								{
+									"id": "impactOccured",
+									"objectClass": "TelegramMiniApps",
+									"sid": 455309770914014,
+									"parameters": {
+										"style": "light"
+									}
+								},
+								{
 									"id": "tween-two-properties",
-									"objectClass": "ItemList",
+									"objectClass": "Item",
 									"sid": 617008421498869,
 									"behaviorType": "Tween",
 									"parameters": {
@@ -325,7 +333,7 @@
 								},
 								{
 									"id": "instance-signal",
-									"objectClass": "ItemList",
+									"objectClass": "Item",
 									"sid": 695784015821210,
 									"parameters": {
 										"tag": "\"AnimationEnd\""
@@ -342,17 +350,7 @@
 									"objectClass": "Touch",
 									"sid": 467191751551873,
 									"parameters": {
-										"object": "ItemList"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 118177339593476,
-									"parameters": {
-										"first-value": "Functions.isTouchingHeaderOrNavigationBar",
-										"comparison": 0,
-										"second-value": "0"
+										"object": "Item"
 									}
 								},
 								{
@@ -360,7 +358,7 @@
 									"objectClass": "System",
 									"sid": 987772281720467,
 									"parameters": {
-										"layer": "ItemList.LayerName"
+										"layer": "Item.LayerName"
 									}
 								},
 								{
@@ -368,39 +366,88 @@
 									"objectClass": "System",
 									"sid": 249148298680287,
 									"parameters": {
-										"layer": "ItemList.LayerName"
-									}
-								},
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "ItemList",
-									"sid": 368195377270532,
-									"parameters": {
-										"instance-variable": "OnLeft"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "ItemList",
-									"sid": 922889276204893,
-									"parameters": {
-										"instance-variable": "OnRight"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "instance-signal",
-									"objectClass": "ItemList",
-									"sid": 709091362551431,
-									"parameters": {
-										"tag": "\"Tap\""
+										"layer": "Item.LayerName"
 									}
 								}
 							],
-							"sid": 324403346629223
+							"actions": [],
+							"sid": 324403346629223,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 894178424764982,
+											"parameters": {
+												"first-value": "Functions.isTouchingHeaderOrNavigationBar",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Item",
+											"sid": 218766739007965,
+											"parameters": {
+												"instance-variable": "OnLeft"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Item",
+											"sid": 274772421810161,
+											"parameters": {
+												"instance-variable": "OnRight"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "instance-signal",
+											"objectClass": "Item",
+											"sid": 403320776093481,
+											"parameters": {
+												"tag": "\"Tap\""
+											}
+										}
+									],
+									"sid": 160901234889173
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Item",
+											"sid": 364101087263189,
+											"parameters": {
+												"instance-variable": "OnLeft"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Item",
+											"sid": 345866128598160,
+											"parameters": {
+												"instance-variable": "OnRight"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "Reset swipe",
+											"objectClass": "Item",
+											"sid": 619291687013547
+										}
+									],
+									"sid": 146427789001410,
+									"isOrBlock": true
+								}
+							]
 						},
 						{
 							"eventType": "comment",
@@ -434,7 +481,7 @@
 									"objectClass": "Touch",
 									"sid": 241039551654229,
 									"parameters": {
-										"object": "ItemList"
+										"object": "Item"
 									}
 								},
 								{
@@ -452,7 +499,7 @@
 									"objectClass": "System",
 									"sid": 230670778376159,
 									"parameters": {
-										"layer": "ItemList.LayerName"
+										"layer": "Item.LayerName"
 									}
 								},
 								{
@@ -460,7 +507,7 @@
 									"objectClass": "System",
 									"sid": 195066691451025,
 									"parameters": {
-										"layer": "ItemList.LayerName"
+										"layer": "Item.LayerName"
 									}
 								}
 							],
@@ -472,7 +519,7 @@
 									"conditions": [
 										{
 											"id": "is-boolean-instance-variable-set",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 381570650645323,
 											"parameters": {
 												"instance-variable": "OnLeft"
@@ -481,7 +528,7 @@
 										},
 										{
 											"id": "is-boolean-instance-variable-set",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 666797297413296,
 											"parameters": {
 												"instance-variable": "OnRight"
@@ -519,7 +566,7 @@
 											"actions": [
 												{
 													"customAction": "Swipe",
-													"objectClass": "ItemList",
+													"objectClass": "Item",
 													"sid": 123117770955568,
 													"parameters": [
 														false,
@@ -546,7 +593,7 @@
 											"actions": [
 												{
 													"customAction": "Swipe",
-													"objectClass": "ItemList",
+													"objectClass": "Item",
 													"sid": 260016275929406,
 													"parameters": [
 														true,
@@ -557,43 +604,13 @@
 											"sid": 403911058165702
 										}
 									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "ItemList",
-											"sid": 169195481900290,
-											"parameters": {
-												"instance-variable": "OnLeft"
-											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "ItemList",
-											"sid": 178773536410209,
-											"parameters": {
-												"instance-variable": "OnRight"
-											}
-										}
-									],
-									"actions": [
-										{
-											"customAction": "Reset swipe",
-											"objectClass": "ItemList",
-											"sid": 498073443682666
-										}
-									],
-									"sid": 286278413217237,
-									"isOrBlock": true
 								}
 							]
 						},
 						{
 							"aceType": "action",
 							"aceName": "Reset swipe",
-							"objectClass": "ItemList",
+							"objectClass": "Item",
 							"functionDescription": "",
 							"functionCategory": "",
 							"functionReturnType": "none",
@@ -604,7 +621,7 @@
 							"conditions": [
 								{
 									"id": "is-playing",
-									"objectClass": "ItemList",
+									"objectClass": "Item",
 									"sid": 610646602139784,
 									"behaviorType": "Tween",
 									"parameters": {
@@ -613,7 +630,13 @@
 									"isInverted": true
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "selectionChanged",
+									"objectClass": "TelegramMiniApps",
+									"sid": 388694164158084
+								}
+							],
 							"sid": 356530836660410,
 							"children": [
 								{
@@ -621,7 +644,7 @@
 									"conditions": [
 										{
 											"id": "is-boolean-instance-variable-set",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 684761663837986,
 											"parameters": {
 												"instance-variable": "OnLeft"
@@ -631,7 +654,7 @@
 									"actions": [
 										{
 											"id": "tween-one-property",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 769605541134814,
 											"behaviorType": "Tween",
 											"parameters": {
@@ -654,7 +677,7 @@
 									"conditions": [
 										{
 											"id": "is-boolean-instance-variable-set",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 187657764583577,
 											"parameters": {
 												"instance-variable": "OnRight"
@@ -664,7 +687,7 @@
 									"actions": [
 										{
 											"id": "tween-one-property",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 988656652919040,
 											"behaviorType": "Tween",
 											"parameters": {
@@ -688,7 +711,7 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 959422613463142,
 											"parameters": {
 												"instance-variable": "OnLeft",
@@ -697,7 +720,7 @@
 										},
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 338866376386688,
 											"parameters": {
 												"instance-variable": "OnRight",
@@ -712,7 +735,7 @@
 						{
 							"aceType": "action",
 							"aceName": "Swipe",
-							"objectClass": "ItemList",
+							"objectClass": "Item",
 							"functionDescription": "",
 							"functionCategory": "",
 							"functionReturnType": "none",
@@ -738,7 +761,7 @@
 							"conditions": [
 								{
 									"id": "is-playing",
-									"objectClass": "ItemList",
+									"objectClass": "Item",
 									"sid": 128547547816772,
 									"behaviorType": "Tween",
 									"parameters": {
@@ -747,7 +770,13 @@
 									"isInverted": true
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "selectionChanged",
+									"objectClass": "TelegramMiniApps",
+									"sid": 130179602450988
+								}
+							],
 							"sid": 817641804194988,
 							"children": [
 								{
@@ -763,7 +792,7 @@
 										},
 										{
 											"id": "is-boolean-instance-variable-set",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 524129241273079,
 											"parameters": {
 												"instance-variable": "OnRight"
@@ -772,7 +801,7 @@
 										},
 										{
 											"id": "is-boolean-instance-variable-set",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 118521958954017,
 											"parameters": {
 												"instance-variable": "OnLeft"
@@ -783,7 +812,7 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 180186672875369,
 											"parameters": {
 												"instance-variable": "OnLeft",
@@ -792,7 +821,7 @@
 										},
 										{
 											"id": "tween-one-property",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 991018368763387,
 											"behaviorType": "Tween",
 											"parameters": {
@@ -823,7 +852,7 @@
 										},
 										{
 											"id": "is-boolean-instance-variable-set",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 245690495106715,
 											"parameters": {
 												"instance-variable": "OnLeft"
@@ -832,7 +861,7 @@
 										},
 										{
 											"id": "is-boolean-instance-variable-set",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 137090526211319,
 											"parameters": {
 												"instance-variable": "OnRight"
@@ -843,7 +872,7 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 379509447514510,
 											"parameters": {
 												"instance-variable": "OnRight",
@@ -852,7 +881,7 @@
 										},
 										{
 											"id": "tween-one-property",
-											"objectClass": "ItemList",
+											"objectClass": "Item",
 											"sid": 424046070366673,
 											"behaviorType": "Tween",
 											"parameters": {
@@ -1042,6 +1071,192 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "variable",
+							"name": "ACTIVE_SECTION_COLOR",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 775071100135656
+						},
+						{
+							"eventType": "variable",
+							"name": "INACTIVE_SECTION_COLOR",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 783701359294743
+						},
+						{
+							"functionName": "Switch section",
+							"functionDescription": "",
+							"functionCategory": "Components / Button",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "ChosenSectionIndex",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 581239065672524
+								},
+								{
+									"name": "SectionClass",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 607898020670111
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 281213697723274,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-evaluate",
+											"objectClass": "System",
+											"sid": 210477863826374,
+											"parameters": {
+												"object": "Button",
+												"expression": "Button.Class = SectionClass"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 830342663396524,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "Button",
+													"sid": 700794301789640,
+													"parameters": {
+														"child": "SVG",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "SVG",
+													"sid": 846263184370659,
+													"parameters": {
+														"color": "rgb(29, 29, 29)"
+													}
+												}
+											],
+											"sid": 535108190835266
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "Button",
+													"sid": 133669564656102,
+													"parameters": {
+														"child": "Text",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-font-color",
+													"objectClass": "Text",
+													"sid": 702992740339012,
+													"parameters": {
+														"color": "rgb(255, 255, 255)"
+													}
+												}
+											],
+											"sid": 973733157009740
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-evaluate",
+											"objectClass": "System",
+											"sid": 976756012022638,
+											"parameters": {
+												"object": "Button",
+												"expression": "Button.Class = SectionClass & Button.Index = ChosenSectionIndex"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 185813122754188,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "Button",
+													"sid": 850332095781376,
+													"parameters": {
+														"child": "SVG",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "SVG",
+													"sid": 325865803734710,
+													"parameters": {
+														"color": "rgb(228, 229, 233)"
+													}
+												}
+											],
+											"sid": 317243737230897
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "Button",
+													"sid": 551439821256570,
+													"parameters": {
+														"child": "Text",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-font-color",
+													"objectClass": "Text",
+													"sid": 164519690545864,
+													"parameters": {
+														"color": "rgb(20, 20, 20)"
+													}
+												}
+											],
+											"sid": 182003481945380
+										}
+									]
+								}
+							]
+						},
 						{
 							"functionName": "enableButton",
 							"functionDescription": "",
@@ -1549,6 +1764,14 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "impactOccured",
+									"objectClass": "TelegramMiniApps",
+									"sid": 657215839320996,
+									"parameters": {
+										"style": "light"
+									}
+								},
 								{
 									"id": "tween-two-properties",
 									"objectClass": "Button",

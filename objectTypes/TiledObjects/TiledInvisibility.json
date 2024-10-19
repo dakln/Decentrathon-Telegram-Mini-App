@@ -1,0 +1,28 @@
+{
+	"name": "TiledInvisibility",
+	"plugin-id": "TiledBg",
+	"sid": 344935849551283,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 988367786520588
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 1,
+		"height": 1,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 6060463,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

@@ -1,5 +1,5 @@
 {
-	"name": "ES_Profile",
+	"name": "ES_Filters",
 	"events": [
 		{
 			"eventType": "include",
@@ -11,10 +11,6 @@
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "ES_NavigationBar"
-		},
-		{
-			"eventType": "include",
 			"includeSheet": "ES_Scroll"
 		},
 		{
@@ -23,21 +19,21 @@
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 839306614447323
+					"sid": 189698649391977
 				}
 			],
 			"actions": [
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 608926311884193,
+					"sid": 850164452085145,
 					"parameters": {
 						"seconds": "0.05"
 					}
 				},
 				{
 					"callFunction": "setScrollActivated",
-					"sid": 816642557151180,
+					"sid": 539350122266248,
 					"parameters": [
 						true,
 						"\"\""
@@ -46,7 +42,7 @@
 				{
 					"id": "pin-to-object-properties",
 					"objectClass": "ComponentItem",
-					"sid": 607771936679101,
+					"sid": 946403021155540,
 					"behaviorType": "Pin",
 					"parameters": {
 						"pin-to": "List",
@@ -59,7 +55,7 @@
 					}
 				}
 			],
-			"sid": 333051125377626
+			"sid": 684231252458923
 		},
 		{
 			"eventType": "block",
@@ -67,7 +63,7 @@
 				{
 					"id": "on-touched-object",
 					"objectClass": "Touch",
-					"sid": 117369814405561,
+					"sid": 639090250806410,
 					"parameters": {
 						"object": "Button",
 						"type": "end"
@@ -75,7 +71,7 @@
 				}
 			],
 			"actions": [],
-			"sid": 785531789591965,
+			"sid": 487934381077071,
 			"children": [
 				{
 					"eventType": "block",
@@ -83,27 +79,27 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Button",
-							"sid": 626518190699763,
+							"sid": 731210474415880,
 							"parameters": {
 								"instance-variable": "Id",
 								"comparison": 0,
-								"value": "\"back\""
+								"value": "\"close\""
 							}
 						}
 					],
 					"actions": [
 						{
 							"callFunction": "goToLayout",
-							"sid": 319273943649139,
+							"sid": 188947575760488,
 							"parameters": [
 								"\"Search\""
 							]
 						}
 					],
-					"sid": 315382662680178
+					"sid": 773910654349702
 				}
 			]
 		}
 	],
-	"sid": 793775926464940
+	"sid": 374106080381892
 }

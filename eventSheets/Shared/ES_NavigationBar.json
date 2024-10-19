@@ -1,0 +1,217 @@
+{
+	"name": "ES_NavigationBar",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "PreviousPage",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 989102968972663
+		},
+		{
+			"eventType": "variable",
+			"name": "CurrentPage",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 343468413330163
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 998149415068986
+				}
+			],
+			"actions": [],
+			"sid": 217575989993620,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-evaluate",
+							"objectClass": "System",
+							"sid": 861702213033622,
+							"parameters": {
+								"object": "Button",
+								"expression": "Button.Class = \"NavigationBar\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 863555424743201,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Button",
+									"sid": 906582173732271,
+									"parameters": {
+										"child": "SVG",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "SVG",
+									"sid": 788469252943191,
+									"parameters": {
+										"opacity": "50"
+									}
+								}
+							],
+							"sid": 863598333127474
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Button",
+									"sid": 983220210830364,
+									"parameters": {
+										"child": "Text",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Text",
+									"sid": 434468404557660,
+									"parameters": {
+										"opacity": "50"
+									}
+								}
+							],
+							"sid": 416430575210971
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-evaluate",
+							"objectClass": "System",
+							"sid": 646663438339289,
+							"parameters": {
+								"object": "Button",
+								"expression": "Button.Class = \"NavigationBar\" & Button.Id =CurrentPage"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 491021207916887,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Button",
+									"sid": 292033596360641,
+									"parameters": {
+										"child": "SVG",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "SVG",
+									"sid": 213320848879374,
+									"parameters": {
+										"opacity": "100"
+									}
+								}
+							],
+							"sid": 962353767762952
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Button",
+									"sid": 368459965936054,
+									"parameters": {
+										"child": "Text",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Text",
+									"sid": 145561348145547,
+									"parameters": {
+										"opacity": "100"
+									}
+								}
+							],
+							"sid": 494076887205672
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 188989114910311,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Button",
+					"sid": 213435041069340,
+					"parameters": {
+						"instance-variable": "Class",
+						"comparison": 0,
+						"value": "\"NavigationBar\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 765150611593977,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "goToLayout",
+							"sid": 846366866268809,
+							"parameters": [
+								"Button.Id"
+							]
+						}
+					],
+					"sid": 736950619406968
+				}
+			]
+		}
+	],
+	"sid": 808233448912313
+}

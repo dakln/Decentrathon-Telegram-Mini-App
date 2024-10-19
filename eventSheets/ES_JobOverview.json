@@ -1,0 +1,308 @@
+{
+	"name": "ES_JobOverview",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "ES_UI"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_Header"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_NavigationBar"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_Scroll"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 156235289148132
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 775761461262006,
+					"parameters": {
+						"seconds": "0.05"
+					}
+				},
+				{
+					"callFunction": "setScrollActivated",
+					"sid": 176864146250087,
+					"parameters": [
+						true,
+						"\"overview\""
+					]
+				}
+			],
+			"sid": 503195554008388,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 892327608420432,
+							"parameters": {
+								"object": "ComponentItem"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 257093184809149,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-evaluate",
+									"objectClass": "System",
+									"sid": 420583924660628,
+									"parameters": {
+										"object": "List",
+										"expression": "List.LayerName = ComponentItem.LayerName"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "ComponentItem",
+									"sid": 243395009393906,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "List",
+										"x": true,
+										"y": true,
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 724926481010848
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 196670962935644,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 571377110798235,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 118789277321171,
+							"parameters": {
+								"instance-variable": "Id",
+								"comparison": 0,
+								"value": "\"back\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "goToLayout",
+							"sid": 208830129910204,
+							"parameters": [
+								"\"Search\""
+							]
+						}
+					],
+					"sid": 799245606234183
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 317869206107645,
+							"parameters": {
+								"instance-variable": "Id",
+								"comparison": 0,
+								"value": "\"hiring_details\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 214196717057589,
+							"parameters": {
+								"layer": "\"Overview\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 809206561523850,
+							"parameters": {
+								"layer": "\"Overview\"",
+								"interactive": false
+							}
+						},
+						{
+							"callFunction": "setScrollActivated",
+							"sid": 153611676162338,
+							"parameters": [
+								false,
+								"\"overview\""
+							]
+						},
+						{
+							"type": "comment",
+							"text": ""
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 296166998484692,
+							"parameters": {
+								"layer": "\"HiringDetails\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 277330325784122,
+							"parameters": {
+								"layer": "\"HiringDetails\"",
+								"interactive": true
+							}
+						},
+						{
+							"callFunction": "setScrollActivated",
+							"sid": 551374737660525,
+							"parameters": [
+								true,
+								"\"hiring_details\""
+							]
+						},
+						{
+							"callFunction": "Switch section",
+							"sid": 964199323400550,
+							"parameters": [
+								"Button.Index",
+								"Button.Class"
+							]
+						}
+					],
+					"sid": 210647835773655
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 198493189948467,
+							"parameters": {
+								"instance-variable": "Id",
+								"comparison": 0,
+								"value": "\"overview\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 923219730010971,
+							"parameters": {
+								"layer": "\"HiringDetails\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 568985663779358,
+							"parameters": {
+								"layer": "\"HiringDetails\"",
+								"interactive": false
+							}
+						},
+						{
+							"callFunction": "setScrollActivated",
+							"sid": 621056135090498,
+							"parameters": [
+								false,
+								"\"hiring_details\""
+							]
+						},
+						{
+							"type": "comment",
+							"text": ""
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 179130913596030,
+							"parameters": {
+								"layer": "\"Overview\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 228660442181715,
+							"parameters": {
+								"layer": "\"Overview\"",
+								"interactive": true
+							}
+						},
+						{
+							"callFunction": "setScrollActivated",
+							"sid": 758408409080119,
+							"parameters": [
+								true,
+								"\"overview\""
+							]
+						},
+						{
+							"callFunction": "Switch section",
+							"sid": 614803801247355,
+							"parameters": [
+								"Button.Index",
+								"Button.Class"
+							]
+						}
+					],
+					"sid": 111706194724866
+				}
+			]
+		}
+	],
+	"sid": 838124574715506
+}

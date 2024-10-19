@@ -1,0 +1,65 @@
+{
+	"name": "ES_History",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "ES_UI"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_Header"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_NavigationBar"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ES_Scroll"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 429339898648051,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 956798678747103,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 414426107645190,
+							"parameters": {
+								"instance-variable": "Class",
+								"comparison": 0,
+								"value": "\"History\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Switch section",
+							"sid": 554832379536253,
+							"parameters": [
+								"Button.Index",
+								"Button.Class"
+							]
+						}
+					],
+					"sid": 619955617613185
+				}
+			]
+		}
+	],
+	"sid": 219900249350938
+}

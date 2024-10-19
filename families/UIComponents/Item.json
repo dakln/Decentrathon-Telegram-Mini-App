@@ -1,5 +1,5 @@
 {
-	"name": "ItemList",
+	"name": "Item",
 	"plugin-id": "TiledBg",
 	"sid": 502053581084535,
 	"instanceVariables": [
@@ -58,10 +58,16 @@
 			"behaviorId": "Tween",
 			"name": "Tween",
 			"sid": 952979337746177
+		},
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 102060538270030
 		}
 	],
 	"effectTypes": [],
 	"members": [
-		"ComponentItemList"
+		"ComponentJobItem",
+		"ComponentItem"
 	]
 }

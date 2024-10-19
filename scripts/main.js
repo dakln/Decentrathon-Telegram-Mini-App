@@ -12,10 +12,16 @@ runOnStartup(async runtime =>
 
 async function OnBeforeProjectStart(runtime)
 {
-	// Code to run just before 'On start of layout' on
-	// the first layout. Loading has finished and initial
-	// instances are created and available to use here.
-	
+// 	if (window.visualViewport) {
+// 		window.visualViewport.addEventListener('resize', () => {
+// 			document.body.style.height = window.visualViewport.height + 'px';
+// 		});
+// 	}
+// 	// This will ensure user never overscroll the page
+// 	window.addEventListener('scroll', () => {
+// 		if (window.scrollY > 0) window.scrollTo(0, 0);
+// 	});
+
 	runtime.addEventListener("tick", () => Tick(runtime));
 }
 

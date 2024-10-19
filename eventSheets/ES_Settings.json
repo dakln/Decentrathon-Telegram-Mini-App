@@ -1,5 +1,5 @@
 {
-	"name": "ES_Profile",
+	"name": "ES_Settings",
 	"events": [
 		{
 			"eventType": "include",
@@ -14,30 +14,26 @@
 			"includeSheet": "ES_NavigationBar"
 		},
 		{
-			"eventType": "include",
-			"includeSheet": "ES_Scroll"
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 839306614447323
+					"sid": 797503321954981
 				}
 			],
 			"actions": [
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 608926311884193,
+					"sid": 178709608630876,
 					"parameters": {
 						"seconds": "0.05"
 					}
 				},
 				{
 					"callFunction": "setScrollActivated",
-					"sid": 816642557151180,
+					"sid": 349753050782697,
 					"parameters": [
 						true,
 						"\"\""
@@ -46,7 +42,7 @@
 				{
 					"id": "pin-to-object-properties",
 					"objectClass": "ComponentItem",
-					"sid": 607771936679101,
+					"sid": 257259874524030,
 					"behaviorType": "Pin",
 					"parameters": {
 						"pin-to": "List",
@@ -59,7 +55,7 @@
 					}
 				}
 			],
-			"sid": 333051125377626
+			"sid": 964912706700860
 		},
 		{
 			"eventType": "block",
@@ -67,7 +63,7 @@
 				{
 					"id": "on-touched-object",
 					"objectClass": "Touch",
-					"sid": 117369814405561,
+					"sid": 552997066986518,
 					"parameters": {
 						"object": "Button",
 						"type": "end"
@@ -75,7 +71,7 @@
 				}
 			],
 			"actions": [],
-			"sid": 785531789591965,
+			"sid": 401962193785066,
 			"children": [
 				{
 					"eventType": "block",
@@ -83,7 +79,7 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Button",
-							"sid": 626518190699763,
+							"sid": 209506584907956,
 							"parameters": {
 								"instance-variable": "Id",
 								"comparison": 0,
@@ -94,16 +90,16 @@
 					"actions": [
 						{
 							"callFunction": "goToLayout",
-							"sid": 319273943649139,
+							"sid": 401068795903014,
 							"parameters": [
 								"\"Search\""
 							]
 						}
 					],
-					"sid": 315382662680178
+					"sid": 198304803090611
 				}
 			]
 		}
 	],
-	"sid": 793775926464940
+	"sid": 143593145064085
 }

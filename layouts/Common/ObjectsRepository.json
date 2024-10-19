@@ -7,7 +7,7 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "ComponentItemList",
+					"type": "ComponentJobItem",
 					"properties": {
 						"initially-visible": true,
 						"origin": "center",
@@ -45,6 +45,11 @@
 						"Tween": {
 							"properties": {
 								"enabled": true
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
 							}
 						}
 					},
@@ -188,6 +193,15 @@
 										"state": [
 											[
 												"enabled",
+												true
+											]
+										]
+									},
+									{
+										"key": "Pin",
+										"state": [
+											[
+												"destroy",
 												true
 											]
 										]
@@ -1254,8 +1268,8 @@
 						"y": 330.939003684304,
 						"width": 390,
 						"height": 692,
-						"originX": 0.5,
-						"originY": 0.5,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
