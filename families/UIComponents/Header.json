@@ -1,0 +1,11 @@
+{
+	"name": "Header",
+	"plugin-id": "Sprite",
+	"sid": 298936730096585,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"ComponentHeader"
+	]
+}

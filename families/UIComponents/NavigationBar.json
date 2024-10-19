@@ -1,0 +1,12 @@
+{
+	"name": "NavigationBar",
+	"plugin-id": "Sprite",
+	"sid": 650687765822159,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"ComponentNavigationBar",
+		"ComponentHeader"
+	]
+}

@@ -236,12 +236,6 @@
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 636664764198341
-				},
-				{
-					"eventType": "block",
 					"conditions": [
 						{
 							"id": "is-in-touch",
@@ -253,7 +247,7 @@
 						{
 							"id": "set-max-speed",
 							"objectClass": "Camera",
-							"sid": 418560273980487,
+							"sid": 687703595072595,
 							"behaviorType": "8Direction",
 							"parameters": {
 								"max-speed": "max(Touch.SpeedAt(0), 4000)"
@@ -268,11 +262,11 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 505143009736101,
+									"sid": 636151513758569,
 									"parameters": {
 										"first-value": "Touch.AngleAt(0)",
-										"comparison": 4,
-										"second-value": "0"
+										"comparison": 0,
+										"second-value": "90"
 									}
 								}
 							],
@@ -299,11 +293,11 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 220139556819587,
+									"sid": 942509414461936,
 									"parameters": {
 										"first-value": "Touch.AngleAt(0)",
-										"comparison": 2,
-										"second-value": "0"
+										"comparison": 0,
+										"second-value": "-90"
 									}
 								}
 							],

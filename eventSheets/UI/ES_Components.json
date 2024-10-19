@@ -60,10 +60,10 @@
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 752925609226097,
+							"disabled": true,
 							"parameters": {
 								"variable": "LoaderLayoutCompleted"
-							},
-							"isInverted": true
+							}
 						}
 					],
 					"actions": [],
@@ -92,6 +92,30 @@
 								}
 							],
 							"sid": 364762406552437
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 666427348922717,
+									"parameters": {
+										"object": "Bar"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "instance-signal",
+									"objectClass": "Bar",
+									"sid": 456599086100941,
+									"parameters": {
+										"tag": "\"Initialize\""
+									}
+								}
+							],
+							"sid": 492707224470625
 						}
 					]
 				}
@@ -107,10 +131,1211 @@
 				{
 					"eventType": "group",
 					"disabled": false,
+					"title": "ItemList",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "isTouchingHeaderOrNavigationBar",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "number",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 985522696215344,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 616577585559118,
+											"parameters": {
+												"object": "NavigationBar"
+											}
+										},
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 526827937146723,
+											"parameters": {
+												"object": "Header"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 984675737144187,
+											"parameters": {
+												"value": "1"
+											}
+										}
+									],
+									"sid": 485900763778439,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 814129981624845
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 494702813674421,
+											"parameters": {
+												"value": "0"
+											}
+										}
+									],
+									"sid": 436197245930869
+								}
+							]
+						},
+						{
+							"eventType": "variable",
+							"name": "ReductionRate",
+							"type": "number",
+							"initialValue": "0.075",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 143948947886292
+						},
+						{
+							"eventType": "variable",
+							"name": "AnimationSpeed",
+							"type": "number",
+							"initialValue": "0.1",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 820579397033209
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "ItemList",
+									"sid": 771268067557120
+								}
+							],
+							"actions": [
+								{
+									"id": "instance-signal",
+									"objectClass": "ItemList",
+									"sid": 444164296116570,
+									"parameters": {
+										"tag": "\"Initialize\""
+									}
+								}
+							],
+							"sid": 605520201992114
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "ItemList",
+									"sid": 857838356022337,
+									"parameters": {
+										"tag": "\"Initialize\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 123169882922613,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "ItemList",
+											"sid": 519400337619665,
+											"parameters": {
+												"instance-variable": "IWidth",
+												"value": "Self.Width"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "ItemList",
+											"sid": 626805322927224,
+											"parameters": {
+												"instance-variable": "IHeight",
+												"value": "Self.Height"
+											}
+										}
+									],
+									"sid": 500412409730187
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "ItemList",
+									"sid": 456448239217431,
+									"parameters": {
+										"tag": "\"Tap\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "ItemList",
+									"sid": 617008421498869,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"TouchStart\"",
+										"property": "size",
+										"end-x": "Self.IWidth - (Self.IWidth * ReductionRate)",
+										"end-y": "Self.IHeight - (Self.IHeight * ReductionRate)",
+										"time": "AnimationSpeed",
+										"ease": "easeoutcubic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "yes",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 651991262957754
+								},
+								{
+									"id": "instance-signal",
+									"objectClass": "ItemList",
+									"sid": 695784015821210,
+									"parameters": {
+										"tag": "\"AnimationEnd\""
+									}
+								}
+							],
+							"sid": 567951830842177
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 467191751551873,
+									"parameters": {
+										"object": "ItemList"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 118177339593476,
+									"parameters": {
+										"first-value": "Functions.isTouchingHeaderOrNavigationBar",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 987772281720467,
+									"parameters": {
+										"layer": "ItemList.LayerName"
+									}
+								},
+								{
+									"id": "layer-is-interactive",
+									"objectClass": "System",
+									"sid": 249148298680287,
+									"parameters": {
+										"layer": "ItemList.LayerName"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ItemList",
+									"sid": 368195377270532,
+									"parameters": {
+										"instance-variable": "OnLeft"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ItemList",
+									"sid": 922889276204893,
+									"parameters": {
+										"instance-variable": "OnRight"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "instance-signal",
+									"objectClass": "ItemList",
+									"sid": 709091362551431,
+									"parameters": {
+										"tag": "\"Tap\""
+									}
+								}
+							],
+							"sid": 324403346629223
+						},
+						{
+							"eventType": "comment",
+							"text": "\nSwipe behavior\n"
+						},
+						{
+							"eventType": "variable",
+							"name": "SwipeDuration",
+							"type": "number",
+							"initialValue": "0.2",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 849985071404513
+						},
+						{
+							"eventType": "variable",
+							"name": "SwipeDistance",
+							"type": "number",
+							"initialValue": "36",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 151429498900062
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 241039551654229,
+									"parameters": {
+										"object": "ItemList"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 566611120003843,
+									"parameters": {
+										"first-value": "Functions.isTouchingHeaderOrNavigationBar",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 230670778376159,
+									"parameters": {
+										"layer": "ItemList.LayerName"
+									}
+								},
+								{
+									"id": "layer-is-interactive",
+									"objectClass": "System",
+									"sid": 195066691451025,
+									"parameters": {
+										"layer": "ItemList.LayerName"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 510892208568833,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ItemList",
+											"sid": 381570650645323,
+											"parameters": {
+												"instance-variable": "OnLeft"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ItemList",
+											"sid": 666797297413296,
+											"parameters": {
+												"instance-variable": "OnRight"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 333054570839937,
+											"parameters": {
+												"first-value": "Touch.SpeedAt(0)",
+												"comparison": 4,
+												"second-value": "1000"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 152010262099321,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 753318717790614,
+													"parameters": {
+														"first-value": "Touch.AngleAt(0)",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"customAction": "Swipe",
+													"objectClass": "ItemList",
+													"sid": 123117770955568,
+													"parameters": [
+														false,
+														true
+													]
+												}
+											],
+											"sid": 298936026982575
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 547964306060028,
+													"parameters": {
+														"first-value": "Touch.AngleAt(0)",
+														"comparison": 0,
+														"second-value": "180"
+													}
+												}
+											],
+											"actions": [
+												{
+													"customAction": "Swipe",
+													"objectClass": "ItemList",
+													"sid": 260016275929406,
+													"parameters": [
+														true,
+														false
+													]
+												}
+											],
+											"sid": 403911058165702
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ItemList",
+											"sid": 169195481900290,
+											"parameters": {
+												"instance-variable": "OnLeft"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ItemList",
+											"sid": 178773536410209,
+											"parameters": {
+												"instance-variable": "OnRight"
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "Reset swipe",
+											"objectClass": "ItemList",
+											"sid": 498073443682666
+										}
+									],
+									"sid": 286278413217237,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"aceType": "action",
+							"aceName": "Reset swipe",
+							"objectClass": "ItemList",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "custom-ace-block",
+							"conditions": [
+								{
+									"id": "is-playing",
+									"objectClass": "ItemList",
+									"sid": 610646602139784,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Swipe\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 356530836660410,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ItemList",
+											"sid": 684761663837986,
+											"parameters": {
+												"instance-variable": "OnLeft"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "ItemList",
+											"sid": 769605541134814,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Swipe\"",
+												"property": "offsetX",
+												"end-value": "Self.X + SwipeDistance",
+												"time": "SwipeDuration",
+												"ease": "easeoutexpo",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 954974148057851
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ItemList",
+											"sid": 187657764583577,
+											"parameters": {
+												"instance-variable": "OnRight"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "ItemList",
+											"sid": 988656652919040,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Swipe\"",
+												"property": "offsetX",
+												"end-value": "Self.X - SwipeDistance",
+												"time": "SwipeDuration",
+												"ease": "easeoutexpo",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 119673773958168
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ItemList",
+											"sid": 959422613463142,
+											"parameters": {
+												"instance-variable": "OnLeft",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ItemList",
+											"sid": 338866376386688,
+											"parameters": {
+												"instance-variable": "OnRight",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 837760514717759
+								}
+							]
+						},
+						{
+							"aceType": "action",
+							"aceName": "Swipe",
+							"objectClass": "ItemList",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "ToLeft",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"sid": 731701028485079
+								},
+								{
+									"name": "ToRight",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"sid": 435790665859854
+								}
+							],
+							"eventType": "custom-ace-block",
+							"conditions": [
+								{
+									"id": "is-playing",
+									"objectClass": "ItemList",
+									"sid": 128547547816772,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Swipe\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 817641804194988,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 536823751557601,
+											"parameters": {
+												"variable": "ToLeft"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ItemList",
+											"sid": 524129241273079,
+											"parameters": {
+												"instance-variable": "OnRight"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ItemList",
+											"sid": 118521958954017,
+											"parameters": {
+												"instance-variable": "OnLeft"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ItemList",
+											"sid": 180186672875369,
+											"parameters": {
+												"instance-variable": "OnLeft",
+												"value": "true"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "ItemList",
+											"sid": 991018368763387,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Swipe\"",
+												"property": "offsetX",
+												"end-value": "Self.X - SwipeDistance",
+												"time": "SwipeDuration",
+												"ease": "easeoutexpo",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 930567435473586
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 261604691741881,
+											"parameters": {
+												"variable": "ToRight"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ItemList",
+											"sid": 245690495106715,
+											"parameters": {
+												"instance-variable": "OnLeft"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ItemList",
+											"sid": 137090526211319,
+											"parameters": {
+												"instance-variable": "OnRight"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ItemList",
+											"sid": 379509447514510,
+											"parameters": {
+												"instance-variable": "OnRight",
+												"value": "true"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "ItemList",
+											"sid": 424046070366673,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Swipe\"",
+												"property": "offsetX",
+												"end-value": "Self.X + SwipeDistance",
+												"time": "SwipeDuration",
+												"ease": "easeoutexpo",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 224727855104345
+								}
+							]
+						}
+					],
+					"sid": 446484744187839
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Bar",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-instance-signal",
+									"objectClass": "Bar",
+									"sid": 986897832731882,
+									"parameters": {
+										"tag": "\"Initialize\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 192850589028883,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-parent",
+											"objectClass": "Bar",
+											"sid": 475760573342008,
+											"parameters": {
+												"parent": "TiledColor",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Bar",
+											"sid": 641881306936794,
+											"parameters": {
+												"instance-variable": "MaxWidth",
+												"value": "TiledColor.Width"
+											}
+										},
+										{
+											"id": "set-width",
+											"objectClass": "Bar",
+											"sid": 511768665955820,
+											"parameters": {
+												"width": "min(((Self.MaxWidth * Self.Percents) / Self.MaxWidth) * Self.MaxWidth, Self.MaxWidth)"
+											}
+										}
+									],
+									"sid": 834850283554654
+								}
+							]
+						},
+						{
+							"aceType": "action",
+							"aceName": "Set progress",
+							"objectClass": "Bar",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": true,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "Percents",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 969745313035266
+								}
+							],
+							"eventType": "custom-ace-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "stop-tweens",
+									"objectClass": "Bar",
+									"sid": 707216925798809,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Progress\""
+									}
+								},
+								{
+									"id": "set-width",
+									"objectClass": "Bar",
+									"sid": 125176781736557,
+									"parameters": {
+										"width": "min(((Self.MaxWidth * Percents) / Self.MaxWidth) * Self.MaxWidth, Self.MaxWidth)"
+									}
+								}
+							],
+							"sid": 905372206018934
+						},
+						{
+							"aceType": "action",
+							"aceName": "Update progress",
+							"objectClass": "Bar",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": true,
+							"functionIsAsync": true,
+							"functionParameters": [
+								{
+									"name": "Percents",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "Like 0.1 / .5",
+									"sid": 201475354090923
+								}
+							],
+							"eventType": "custom-ace-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 822455300650154,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "stop-tweens",
+											"objectClass": "Bar",
+											"sid": 532865145838704,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Progress\""
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Bar",
+											"sid": 872848745853418,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Progress\"",
+												"property": "offsetWidth",
+												"end-value": "min(((Self.MaxWidth * Percents) / Self.MaxWidth) * Self.MaxWidth, Self.MaxWidth)",
+												"time": "0.5",
+												"ease": "easeinoutcubic",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 822556229820198
+								}
+							]
+						}
+					],
+					"sid": 600518750550662
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
 					"title": "Button",
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"functionName": "enableButton",
+							"functionDescription": "",
+							"functionCategory": "Components / Button",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "ButtonId",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 838668274986271
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 587152468895270,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 591226568944979,
+											"parameters": {
+												"instance-variable": "Id",
+												"comparison": 0,
+												"value": "ButtonId"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Button",
+											"sid": 249741906480240,
+											"parameters": {
+												"instance-variable": "Enabled",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "Button",
+											"sid": 669728309354846,
+											"parameters": {
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 622822257433094
+								}
+							]
+						},
+						{
+							"functionName": "disableButton",
+							"functionDescription": "",
+							"functionCategory": "Components / Button",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "ButtonId",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 631599928215785
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 857985938072553,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 440796816009284,
+											"parameters": {
+												"instance-variable": "Id",
+												"comparison": 0,
+												"value": "ButtonId"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Button",
+											"sid": 261987589172024,
+											"parameters": {
+												"instance-variable": "Enabled",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "Button",
+											"sid": 303350243284914,
+											"parameters": {
+												"opacity": "50"
+											}
+										}
+									],
+									"sid": 810862823794728
+								}
+							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Checkbox",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "Switch checkbox",
+									"functionDescription": "",
+									"functionCategory": "Components / Checkbox",
+									"functionReturnType": "none",
+									"functionCopyPicked": true,
+									"functionIsAsync": true,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 307712376424016,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-evaluate",
+													"objectClass": "System",
+													"sid": 151649064595432,
+													"parameters": {
+														"object": "ComponentCheckbox",
+														"expression": "ComponentCheckbox.Class = Button.Class"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "ComponentCheckbox",
+													"sid": 913984718407153,
+													"parameters": {
+														"instance-variable": "Checked",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 318654025852501
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-evaluate",
+													"objectClass": "System",
+													"sid": 915954988729490,
+													"parameters": {
+														"object": "ComponentCheckbox",
+														"expression": "ComponentCheckbox.Index = Button.Index"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "ComponentCheckbox",
+													"sid": 229068364563851,
+													"parameters": {
+														"instance-variable": "Checked",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 360508089990887
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-all",
+													"objectClass": "System",
+													"sid": 725496592697681,
+													"parameters": {
+														"object": "ComponentCheckbox"
+													}
+												},
+												{
+													"id": "pick-by-evaluate",
+													"objectClass": "System",
+													"sid": 985636166487556,
+													"parameters": {
+														"object": "ComponentCheckbox",
+														"expression": "ComponentCheckbox.Class = Button.Class"
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 363334223699979,
+													"parameters": {
+														"object": "ComponentCheckbox"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 785034331491041,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-children",
+															"objectClass": "ComponentCheckbox",
+															"sid": 579792642478878,
+															"parameters": {
+																"child": "SVG",
+																"which": "own"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 933678876953329,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "ComponentCheckbox",
+																	"sid": 324991057653883,
+																	"parameters": {
+																		"instance-variable": "Checked"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-image",
+																	"objectClass": "SVG",
+																	"sid": 236839356386760,
+																	"parameters": {
+																		"file": "checkbox_unchecked.svg"
+																	}
+																}
+															],
+															"sid": 735350744970471
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "ComponentCheckbox",
+																	"sid": 779524153366566,
+																	"parameters": {
+																		"instance-variable": "Checked"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-image",
+																	"objectClass": "SVG",
+																	"sid": 113643464757370,
+																	"parameters": {
+																		"file": "checkbox_checked.svg"
+																	}
+																}
+															],
+															"sid": 811421207747454
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 515566001976596
+						},
 						{
 							"eventType": "variable",
 							"name": "ReductionRate",
@@ -146,6 +1371,136 @@
 							"actions": [],
 							"sid": 811023384967240,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Button",
+											"sid": 400995507060458,
+											"parameters": {
+												"instance-variable": "Enabled"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "Button",
+											"sid": 742797706626917,
+											"parameters": {
+												"opacity": "50"
+											}
+										}
+									],
+									"sid": 194565386067781
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 113594802094123,
+											"parameters": {
+												"first-value": "Button.ObjectTypeName",
+												"comparison": 0,
+												"second-value": "\"ComponentCheckbox\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 620765794632855,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "ComponentCheckbox",
+													"sid": 607090923760713,
+													"parameters": {
+														"instance-variable": "Index",
+														"comparison": 0,
+														"value": "Button.Index"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 963375343025287,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-children",
+															"objectClass": "Button",
+															"sid": 658492657149714,
+															"parameters": {
+																"child": "SVG",
+																"which": "own"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 892088774856364,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "ComponentCheckbox",
+																	"sid": 244814861865805,
+																	"parameters": {
+																		"instance-variable": "Checked"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-image",
+																	"objectClass": "SVG",
+																	"sid": 117942061036263,
+																	"parameters": {
+																		"file": "checkbox_unchecked.svg"
+																	}
+																}
+															],
+															"sid": 219812475620633
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "ComponentCheckbox",
+																	"sid": 638657622745826,
+																	"parameters": {
+																		"instance-variable": "Checked"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-image",
+																	"objectClass": "SVG",
+																	"sid": 229106695896359,
+																	"parameters": {
+																		"file": "checkbox_checked.svg"
+																	}
+																}
+															],
+															"sid": 777975171420297
+														}
+													]
+												}
+											]
+										}
+									]
+								},
 								{
 									"eventType": "block",
 									"conditions": [],

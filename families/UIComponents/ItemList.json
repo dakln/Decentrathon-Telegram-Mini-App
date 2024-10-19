@@ -23,9 +23,43 @@
 			"desc": "",
 			"show": true,
 			"sid": 918148260040502
+		},
+		{
+			"name": "IWidth",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 416562693692877
+		},
+		{
+			"name": "IHeight",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 177655204402356
+		},
+		{
+			"name": "OnLeft",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 802839572913253
+		},
+		{
+			"name": "OnRight",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 374194115380058
 		}
 	],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 952979337746177
+		}
+	],
 	"effectTypes": [],
 	"members": [
 		"ComponentItemList"

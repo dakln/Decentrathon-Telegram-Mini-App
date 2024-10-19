@@ -3,7 +3,7 @@
 	"savedWithRelease": 40702,
 	"name": "Decentrathon",
 	"runtime": "c3",
-	"useWorker": "worker",
+	"useWorker": "dom",
 	"bundleAddons": true,
 	"usedAddons": [
 		{
@@ -12,6 +12,22 @@
 			"name": "Browser",
 			"author": "Scirra",
 			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "HTMLElement",
+			"name": "HTML Element",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LostTelegramMiniAppsSDK",
+			"name": "TelegramMiniApps",
+			"author": "lostinmind.",
+			"bundled": true,
+			"version": "5.1.0.0",
+			"sdkVersion": 2
 		},
 		{
 			"type": "plugin",
@@ -31,6 +47,13 @@
 			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -87,7 +110,8 @@
 	"uniqueId": "lg7fl4nicsv",
 	"objectTypes": {
 		"items": [
-			"OnboardingStep"
+			"OnboardingStep",
+			"HTMLElement"
 		],
 		"subfolders": [
 			{
@@ -96,16 +120,22 @@
 					"Touch",
 					"Anchor",
 					"RotateBahavior",
-					"Tween"
+					"Tween",
+					"TelegramMiniApps"
 				],
 				"subfolders": [],
 				"name": "System"
 			},
 			{
 				"items": [
-					"Item",
-					"Checkbox",
-					"ArrowDropDown"
+					"ArrowDropDown",
+					"BaseField_60",
+					"BaseField_102",
+					"BaseField_74",
+					"Heart",
+					"Close",
+					"CardJobBack",
+					"EmptyProfilePicture"
 				],
 				"subfolders": [],
 				"name": "Sprites"
@@ -125,7 +155,10 @@
 						"items": [
 							"ComponentButton",
 							"ComponentText",
-							"ComponentItemList"
+							"ComponentItemList",
+							"ComponentCheckbox",
+							"ComponentNavigationBar",
+							"ComponentHeader"
 						],
 						"subfolders": [],
 						"name": "Components"
@@ -135,10 +168,19 @@
 			},
 			{
 				"items": [
-					"TiledColor"
+					"TiledColor",
+					"TiledBar",
+					"TiledTransition"
 				],
 				"subfolders": [],
 				"name": "TiledObjects"
+			},
+			{
+				"items": [
+					"TextInput"
+				],
+				"subfolders": [],
+				"name": "HTML"
 			}
 		]
 	},
@@ -151,7 +193,10 @@
 				"items": [
 					"Button",
 					"Text",
-					"ItemList"
+					"ItemList",
+					"Bar",
+					"NavigationBar",
+					"Header"
 				],
 				"subfolders": [],
 				"name": "UIComponents"
@@ -159,21 +204,21 @@
 		]
 	},
 	"layouts": {
-		"items": [
-			"Scroll",
-			"Onboarding"
-		],
+		"items": [],
 		"subfolders": [
 			{
 				"items": [
-					"ObjectsRepository",
-					"UI"
+					"ObjectsRepository"
 				],
 				"subfolders": [],
 				"name": "Common"
 			},
 			{
-				"items": [],
+				"items": [
+					"Onboarding Step 1",
+					"Onboarding Step 2",
+					"Onboarding Step 3"
+				],
 				"subfolders": [],
 				"name": "Onboarding"
 			},
@@ -185,16 +230,30 @@
 				"name": "Jobs"
 			},
 			{
+				"items": [
+					"Profile"
+				],
+				"subfolders": [],
+				"name": "Profile"
+			},
+			{
 				"items": [],
 				"subfolders": [],
-				"name": "New folder 3"
+				"name": "New folder"
+			},
+			{
+				"items": [],
+				"subfolders": [],
+				"name": "New folder 2"
 			}
 		]
 	},
 	"eventSheets": {
 		"items": [
 			"ES_Onboarding",
-			"ES_Search"
+			"ES_Search",
+			"ES_Misc",
+			"ES_Profile"
 		],
 		"subfolders": [
 			{
@@ -321,7 +380,7 @@
 						}
 					],
 					"subfolders": [],
-					"name": "SFPro"
+					"name": "SF Pro"
 				}
 			]
 		},
@@ -411,7 +470,7 @@
 									}
 								},
 								{
-									"name": "checkbox.svg",
+									"name": "checkbox_checked.svg",
 									"type": "image/svg+xml",
 									"sid": 301224432736639,
 									"file-info": {
@@ -462,6 +521,22 @@
 									"name": "priority_medium.svg",
 									"type": "image/svg+xml",
 									"sid": 200488058386212,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "checkbox_unchecked.svg",
+									"type": "image/svg+xml",
+									"sid": 228941123685996,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "rectangle.svg",
+									"type": "image/svg+xml",
+									"sid": 114227112312596,
 									"file-info": {
 										"purpose": "none"
 									}
@@ -535,21 +610,87 @@
 									"file-info": {
 										"purpose": "none"
 									}
+								},
+								{
+									"name": "arrow_left.svg",
+									"type": "image/svg+xml",
+									"sid": 264689180891877,
+									"file-info": {
+										"purpose": "none"
+									}
 								}
 							],
 							"subfolders": [],
 							"name": "icons"
+						},
+						{
+							"items": [
+								{
+									"name": "bg_lines_1.svg",
+									"type": "image/svg+xml",
+									"sid": 317993110129759,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "bg_lines_2.svg",
+									"type": "image/svg+xml",
+									"sid": 492369224450766,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "bg_lines_3.svg",
+									"type": "image/svg+xml",
+									"sid": 392703951020205,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "bg_lines_4.svg",
+									"type": "image/svg+xml",
+									"sid": 284708435846032,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "other"
 						}
 					],
 					"name": "svg"
+				},
+				{
+					"items": [
+						{
+							"name": "TextInput.css",
+							"type": "text/css",
+							"sid": 201300986860315,
+							"file-info": {
+								"purpose": "stylesheet"
+							}
+						},
+						{
+							"name": "ProfileCard.css",
+							"type": "text/css",
+							"sid": 919248874323256,
+							"file-info": {
+								"purpose": "stylesheet"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "styles"
 				}
 			]
 		}
 	},
 	"timelines": {
-		"items": [
-			"Timeline 1"
-		],
+		"items": [],
 		"subfolders": [
 			{
 				"items": [],
@@ -606,7 +747,7 @@
 		"zNear": 1,
 		"zFar": 10000,
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "progress-logo",
+		"loaderStyle": "progress",
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
@@ -616,5 +757,5 @@
 	},
 	"viewportWidth": 390,
 	"viewportHeight": 692,
-	"firstLayout": "Onboarding"
+	"firstLayout": "Onboarding Step 1"
 }

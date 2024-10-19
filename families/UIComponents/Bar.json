@@ -1,0 +1,39 @@
+{
+	"name": "Bar",
+	"plugin-id": "TiledBg",
+	"sid": 814653408114841,
+	"instanceVariables": [
+		{
+			"name": "Id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 113912424914481
+		},
+		{
+			"name": "Percents",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 434615128197506
+		},
+		{
+			"name": "MaxWidth",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 516939641504193
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 668243594654004
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"TiledBar"
+	]
+}

@@ -1,0 +1,47 @@
+{
+	"name": "ES_Misc",
+	"events": [
+		{
+			"functionName": "formatNumber",
+			"functionDescription": "",
+			"functionCategory": "Misc",
+			"functionReturnType": "string",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Value",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 941036045480958
+				},
+				{
+					"name": "Digits",
+					"type": "number",
+					"initialValue": "2",
+					"comment": "",
+					"sid": 796250183899271
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 813788755813209,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "function formatNumberWithSuffix(num, digits) {\n    if (num === 0)\n        return '0'; // проверка на 0\n    if (num < 1)\n        return num.toFixed(digits).toString() + ' '; // если число меньше 1, возвращаем его как есть\n    const suffixes = ['', 'k', 'm', 'b', 't']; // массив суффиксов\n    let tier = Math.floor(Math.log10(Math.abs(num)) / 3); // вычисляем категорию числа\n    const suffix = suffixes[tier] || ''; // выбираем суффикс\n    const scaled = num / Math.pow(10, tier * 3); // делим число на соответствующую степень 1000\n    return scaled.toFixed(digits) + suffix; // округляем до 2 знаков и возвращаем результат\n}\n\nconst str = formatNumberWithSuffix(localVars.Value, localVars.Digits);\nruntime.setReturnValue(str);"
+						}
+					],
+					"sid": 353350029010557
+				}
+			]
+		}
+	],
+	"sid": 976876150260543
+}

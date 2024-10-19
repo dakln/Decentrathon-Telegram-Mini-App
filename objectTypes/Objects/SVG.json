@@ -3,7 +3,15 @@
 	"plugin-id": "SVGPicture",
 	"sid": 138331985578481,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "Id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 753611960674673
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": []
 }

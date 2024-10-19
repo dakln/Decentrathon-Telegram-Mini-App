@@ -1,0 +1,18 @@
+:root {
+	--GRAY_STRONG: rgba(146, 146, 146, 0.6);
+}
+
+.TextInput {
+	font-family: "SF Pro Display Regular";
+	background-color: #1D1D1D;
+	color: #FFFFFF;
+	padding: 10px 20px;
+	width: 100%
+	border-color: var(--GRAY_STRONG);
+	border-radius:  16px;
+	outline: none;
+}
+
+.TextInput::placeholder {
+    color: var(--GRAY_STRONG);
+}

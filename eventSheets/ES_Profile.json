@@ -1,0 +1,83 @@
+{
+	"name": "ES_Profile",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "ES_UI"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 839306614447323
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 153113641374201,
+					"disabled": true,
+					"parameters": {
+						"seconds": "0.1"
+					}
+				},
+				{
+					"callFunction": "setScrollActivated",
+					"sid": 816642557151180,
+					"disabled": true,
+					"parameters": [
+						true
+					]
+				}
+			],
+			"sid": 333051125377626
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 117369814405561,
+					"parameters": {
+						"object": "Button",
+						"type": "end"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 785531789591965,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 626518190699763,
+							"parameters": {
+								"instance-variable": "Id",
+								"comparison": 0,
+								"value": "\"back\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "goToLayout",
+							"sid": 319273943649139,
+							"parameters": [
+								"\"Search\""
+							]
+						}
+					],
+					"sid": 315382662680178
+				}
+			]
+		}
+	],
+	"sid": 793775926464940
+}

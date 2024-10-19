@@ -3,7 +3,36 @@
 	"plugin-id": "TiledBg",
 	"sid": 742649658367180,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "JobPriority",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 177856039434320
+		},
+		{
+			"name": "SalaryFrom",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 395892888142325
+		},
+		{
+			"name": "SalaryTo",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 471877471240064
+		},
+		{
+			"name": "Location",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 484402579180512
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"image": {

@@ -1,0 +1,33 @@
+{
+	"name": "TiledTransition",
+	"plugin-id": "TiledBg",
+	"sid": 259595331746388,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 849083693780202
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 890254036696086
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 1,
+		"height": 1,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 4155261,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

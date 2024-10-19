@@ -4,6 +4,367 @@
 		{
 			"eventType": "include",
 			"includeSheet": "ES_UI"
+		},
+		{
+			"eventType": "variable",
+			"name": "ONBOARDING_STEPS_COUNT",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 910078143949307
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Onboarding",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "CurrentOnboardingStep",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 475726338085412
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 821621748526502
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 717166441574226,
+							"parameters": {
+								"variable": "CurrentOnboardingStep",
+								"value": "int(tokenat(LayoutName, 2, \" \"))"
+							}
+						}
+					],
+					"sid": 483492358876091,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Bar",
+									"sid": 520916624947592,
+									"parameters": {
+										"instance-variable": "Id",
+										"comparison": 0,
+										"value": "\"onboarding_progress\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "Set progress",
+									"objectClass": "Bar",
+									"sid": 842534842074400,
+									"parameters": [
+										"(CurrentOnboardingStep - 1) / ONBOARDING_STEPS_COUNT"
+									]
+								}
+							],
+							"sid": 233621676998768
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 565392980982900,
+									"parameters": {
+										"instance-variable": "Id",
+										"comparison": 0,
+										"value": "\"onboarding_text\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 971084134258775,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 931285676670001,
+											"parameters": {
+												"variable": "CurrentOnboardingStep",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "typewriter-text",
+											"objectClass": "Text",
+											"sid": 268645344891219,
+											"parameters": {
+												"text": "\"I’m...\"",
+												"duration": "0.7"
+											}
+										}
+									],
+									"sid": 396624791890641
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 816427993300999,
+											"parameters": {
+												"variable": "CurrentOnboardingStep",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "typewriter-text",
+											"objectClass": "Text",
+											"sid": 472652289455253,
+											"parameters": {
+												"text": "\"Roles you prefer to see\"",
+												"duration": "0.7"
+											}
+										}
+									],
+									"sid": 448036057385799
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 364341494163177,
+											"parameters": {
+												"variable": "CurrentOnboardingStep",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "typewriter-text",
+											"objectClass": "Text",
+											"sid": 695512212139787,
+											"parameters": {
+												"text": "\"How do other see you\"",
+												"duration": "0.7"
+											}
+										}
+									],
+									"sid": 242117050093609
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 400276762233026,
+							"parameters": {
+								"object": "Button",
+								"type": "end"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Button",
+							"sid": 964075486999116,
+							"parameters": {
+								"instance-variable": "Enabled"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 492531388055005,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 502243350180517,
+									"parameters": {
+										"instance-variable": "Id",
+										"comparison": 0,
+										"value": "\"next\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "disableButton",
+									"sid": 545061903106592,
+									"parameters": [
+										"\"next\""
+									]
+								}
+							],
+							"sid": 698276432960128,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Bar",
+											"sid": 188173287087460,
+											"parameters": {
+												"instance-variable": "Id",
+												"comparison": 0,
+												"value": "\"onboarding_progress\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"customAction": "Update progress",
+											"objectClass": "Bar",
+											"sid": 723715622999197,
+											"parameters": [
+												"(CurrentOnboardingStep) / ONBOARDING_STEPS_COUNT"
+											]
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 924305663117892
+										}
+									],
+									"sid": 532989971662767,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 544846416989029,
+													"parameters": {
+														"variable": "CurrentOnboardingStep",
+														"comparison": 2,
+														"value": "ONBOARDING_STEPS_COUNT"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "go-to-layout-by-name",
+													"objectClass": "System",
+													"sid": 453008211889713,
+													"disabled": true,
+													"parameters": {
+														"layout": "\"Onboarding Step \" & CurrentOnboardingStep + 1"
+													}
+												},
+												{
+													"callFunction": "goToLayout",
+													"sid": 190427689012021,
+													"parameters": [
+														"\"Onboarding Step \" & CurrentOnboardingStep + 1"
+													]
+												}
+											],
+											"sid": 641429869252198
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 647565180510527
+												}
+											],
+											"actions": [
+												{
+													"id": "go-to-layout",
+													"objectClass": "System",
+													"sid": 463268555578465,
+													"parameters": {
+														"layout": "Search"
+													}
+												}
+											],
+											"sid": 314014048745015
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 924442991381925,
+									"parameters": {
+										"instance-variable": "Class",
+										"comparison": 0,
+										"value": "\"checkbox\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Switch checkbox",
+									"sid": 817720207583134
+								}
+							],
+							"sid": 351344792525516
+						}
+					]
+				}
+			],
+			"sid": 165061973064129
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 859365115708759
+				}
+			],
+			"actions": [
+				{
+					"id": "set-unfocused",
+					"objectClass": "TextInput",
+					"sid": 401585036367054
+				}
+			],
+			"sid": 508305185517188
 		}
 	],
 	"sid": 183252491871034

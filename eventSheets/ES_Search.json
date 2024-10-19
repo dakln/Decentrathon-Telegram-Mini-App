@@ -13,6 +13,242 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 928288707827142,
+					"parameters": {
+						"object": "Button",
+						"type": "end"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 607063890900191,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 304598031405850,
+							"parameters": {
+								"instance-variable": "Id",
+								"comparison": 0,
+								"value": "\"profile\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "goToLayout",
+							"sid": 626650419576857,
+							"parameters": [
+								"\"Profile\""
+							]
+						}
+					],
+					"sid": 688198629384548
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-instance-signal",
+					"objectClass": "ComponentItemList",
+					"sid": 766259399496447,
+					"parameters": {
+						"tag": "\"CreatedJobItem\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 960361355560594,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-children",
+							"objectClass": "ComponentItemList",
+							"sid": 476799741150020,
+							"parameters": {
+								"child": "Text",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 988893298943027,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 462676564609205,
+									"parameters": {
+										"instance-variable": "Id",
+										"comparison": 0,
+										"value": "\"job_salary\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 359350630256864,
+									"parameters": {
+										"text": "\"$\" & Functions.formatNumber(ComponentItemList.SalaryFrom, 0) & \" – $\" & Functions.formatNumber(ComponentItemList.SalaryTo, 0) &\"/month\""
+									}
+								}
+							],
+							"sid": 409880973379609
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 793654614730944,
+									"parameters": {
+										"instance-variable": "Id",
+										"comparison": 0,
+										"value": "\"job_location\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 777010787325950,
+									"parameters": {
+										"text": "ComponentItemList.Location"
+									}
+								}
+							],
+							"sid": 557813945000326
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-children",
+							"objectClass": "ComponentItemList",
+							"sid": 754787545970676,
+							"parameters": {
+								"child": "SVG",
+								"which": "own"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SVG",
+							"sid": 671376293816708,
+							"parameters": {
+								"instance-variable": "Id",
+								"comparison": 0,
+								"value": "\"job_priority\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 978637056792968,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ComponentItemList",
+									"sid": 757985393487351,
+									"parameters": {
+										"instance-variable": "JobPriority",
+										"comparison": 0,
+										"value": "\"high\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-image",
+									"objectClass": "SVG",
+									"sid": 883648099686975,
+									"parameters": {
+										"file": "priority_high.svg"
+									}
+								}
+							],
+							"sid": 235385664172004
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ComponentItemList",
+									"sid": 447980968108277,
+									"parameters": {
+										"instance-variable": "JobPriority",
+										"comparison": 0,
+										"value": "\"medium\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-image",
+									"objectClass": "SVG",
+									"sid": 377541195612738,
+									"parameters": {
+										"file": "priority_medium.svg"
+									}
+								}
+							],
+							"sid": 527243761602869
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ComponentItemList",
+									"sid": 103997732010999,
+									"parameters": {
+										"instance-variable": "JobPriority",
+										"comparison": 0,
+										"value": "\"low\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-image",
+									"objectClass": "SVG",
+									"sid": 802469807563699,
+									"parameters": {
+										"file": "priority_low.svg"
+									}
+								}
+							],
+							"sid": 291857269319635
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 846701049243005
@@ -101,9 +337,79 @@
 								"instance-variable": "Index",
 								"value": "loopindex"
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ComponentItemList",
+							"sid": 320648321092484,
+							"parameters": {
+								"instance-variable": "Location",
+								"value": "\"Kazakhstan, \" & choose (\"Astana\", \"Almaty\",  \"Shymkent\", \"Karaganda\", \"Aktau\", \"Oskemen\", \"Petropavl\", \"Pavlodar\", \"Kokshetau\", \"Konaev\", \"Kostanay\", \"Kyzylorda\", \"Semey\", \"Taraz\", \"Taldykorgan\", \"Aktobe\", \"Atyrau\", \"Oral\", \"Turkistan\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ComponentItemList",
+							"sid": 289923894497235,
+							"parameters": {
+								"instance-variable": "SalaryFrom",
+								"value": "int(random(1000, 5000))"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ComponentItemList",
+							"sid": 968754268069088,
+							"parameters": {
+								"instance-variable": "SalaryTo",
+								"value": "int(random(5000, 100000))"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ComponentItemList",
+							"sid": 982977768788800,
+							"parameters": {
+								"instance-variable": "JobPriority",
+								"value": "choose(\"high\", \"medium\", \"low\")"
+							}
+						},
+						{
+							"id": "instance-signal",
+							"objectClass": "ComponentItemList",
+							"sid": 942535195255632,
+							"parameters": {
+								"tag": "\"CreatedJobItem\""
+							}
 						}
 					],
 					"sid": 470941832308471
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 752431013497165,
+							"parameters": {
+								"instance-variable": "Id",
+								"comparison": 0,
+								"value": "\"jobs_count\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 583967873807237,
+							"parameters": {
+								"text": "ComponentItemList.Count & \" JOBS FOUND\""
+							}
+						}
+					],
+					"sid": 900156774341175
 				},
 				{
 					"eventType": "block",
@@ -112,9 +418,9 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 857535578956685,
+							"sid": 296605036003441,
 							"parameters": {
-								"seconds": "0.2"
+								"seconds": "0.05"
 							}
 						},
 						{
