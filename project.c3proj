@@ -38,6 +38,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "SVGPicture",
 			"name": "SVG Picture",
 			"author": "Scirra",
@@ -119,7 +126,8 @@
 		"items": [
 			"OnboardingStep",
 			"HTMLElement",
-			"List"
+			"List",
+			"Particles"
 		],
 		"subfolders": [
 			{
@@ -271,7 +279,7 @@
 			{
 				"items": [],
 				"subfolders": [],
-				"name": "New folder2"
+				"name": "New folder3"
 			}
 		]
 	},
@@ -995,22 +1003,22 @@
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
-			0,
-			0,
-			0,
+			0.0784313725490196,
+			0.0784313725490196,
+			0.0784313725490196,
 			0
 		],
 		"splashColor": [
-			1,
-			1,
-			1,
+			0.0784313725490196,
+			0.0784313725490196,
+			0.0784313725490196,
 			0
 		],
-		"useThemeColor": false,
+		"useThemeColor": true,
 		"themeColor": [
-			1,
-			1,
-			1,
+			0.0784313725490196,
+			0.0784313725490196,
+			0.0784313725490196,
 			0
 		],
 		"orientations": "portrait",
@@ -1025,7 +1033,7 @@
 		"zNear": 1,
 		"zFar": 10000,
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "progress",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",

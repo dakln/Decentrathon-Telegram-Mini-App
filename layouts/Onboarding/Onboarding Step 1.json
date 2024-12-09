@@ -487,6 +487,101 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "ComponentButton",
+					"properties": {
+						"initially-visible": false,
+						"origin": "center",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0,
+						"enable-tile-randomization": false,
+						"x-random": 1,
+						"y-random": 1,
+						"angle-random": 1,
+						"blend-margin-x": 0.1,
+						"blend-margin-y": 0.1
+					},
+					"uid": 65,
+					"sid": 651249482154983,
+					"tags": "",
+					"instanceVariables": {
+						"Index": 0,
+						"Id": "",
+						"Class": "",
+						"IWidth": 0,
+						"IHeight": 0,
+						"Enabled": true
+					},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "window-left",
+								"top-edge": "window-top",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 65,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 651249482154983,
+						"expanded": true
+					},
+					"world": {
+						"x": 574,
+						"y": 415.5,
+						"width": 164,
+						"height": 45,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 324697950042632,
@@ -1299,7 +1394,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 1,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {
@@ -1412,7 +1507,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 1,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {
@@ -1525,7 +1620,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 1,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {
@@ -1670,7 +1765,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 1,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {
@@ -1733,7 +1828,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 1,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {
@@ -1796,7 +1891,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 1,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {
@@ -1991,7 +2086,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 0,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {
@@ -2073,7 +2168,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 1,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {
@@ -2168,7 +2263,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 0,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {
@@ -2250,7 +2345,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 1,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {
@@ -2345,7 +2440,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 0,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {
@@ -2427,7 +2522,7 @@
 							"transformSX": 0,
 							"transformSY": 0,
 							"transformO": 1,
-							"previewSceneGraph": true
+							"previewSceneGraph": false
 						}
 					},
 					"instanceFolderItem": {

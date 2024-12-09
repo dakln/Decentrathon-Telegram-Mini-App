@@ -231,7 +231,15 @@
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "is-dragging",
+							"objectClass": "List",
+							"sid": 845747976538977,
+							"behaviorType": "DragDrop",
+							"isInverted": true
+						}
+					],
 					"actions": [],
 					"sid": 739985689724391,
 					"children": [
@@ -327,9 +335,9 @@
 												{
 													"id": "set-y",
 													"objectClass": "List",
-													"sid": 791614105575667,
+													"sid": 493917298758733,
 													"parameters": {
-														"y": "ViewportTop(\"UI\") + Header.Height"
+														"y": "lerp(Self.Y, ViewportTop(\"UI\") + Header.Height, 0.1)"
 													}
 												}
 											],
@@ -461,9 +469,9 @@
 												{
 													"id": "set-y",
 													"objectClass": "List",
-													"sid": 580622568480422,
+													"sid": 693705596811436,
 													"parameters": {
-														"y": "ViewportTop(\"UI\") + Header.Height"
+														"y": "lerp(Self.Y, ViewportTop(\"UI\") + Header.Height, 0.1)"
 													}
 												}
 											],
